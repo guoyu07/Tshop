@@ -1,7 +1,6 @@
 <template>
     <div>
-        {{i}}
-
+        <router-view></router-view>
     </div>
 
 </template>
