@@ -1,6 +1,5 @@
 <template>
     <div>
-        {{i}}
 
     </div>
 
