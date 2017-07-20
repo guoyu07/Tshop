@@ -7,6 +7,13 @@ import CarPage from '@/components/carPage/CarPage'
 import ClassifyPage from '@/components/classifyPage/ClassifyPage'
 import MinePage from '@/components/minePage/MinePage'
 import Login from '@/components/minePage/Login'
+import flowerT from '@/components/classifyPage/sons/flowerT'
+import sixT from '@/components/classifyPage/sons/sixT'
+import puerT from '@/components/classifyPage/sons/puerT'
+import middleT from '@/components/classifyPage/sons/middleT'
+import yusanT from '@/components/classifyPage/sons/yusanT'
+import windT from '@/components/classifyPage/sons/windT'
+import goldT from '@/components/classifyPage/sons/goldT'
 import Register from '@/components/minePage/Register'
 
 Vue.use(Router)
@@ -31,14 +38,27 @@ export default new Router({
     {
         path: '/classify',
         name: 'ClassifyPage',
-        component: ClassifyPage
+        component: ClassifyPage,
+        children:[
+            {path: '/classify/flowerT',component:flowerT},
+            {path: '/classify/sixT',component:sixT},
+            {path: '/classify/puerT',component:puerT},
+            {path: '/classify/middleT',component:middleT},
+            {path: '/classify/yusanT',component:yusanT},
+            {path: '/classify/windT',component:windT},
+            {path: '/classify/goldT',component:goldT},
+        ]
     },
     {
         path: '/mine',
         name: 'MinePage',
         component: MinePage,
         children:[
-        		{path:'/mine/login',name:'Login',component:Login}
+        		{
+        		    path:'/mine/login',
+                    name:'Login',
+                    component:Login
+        		}
         ]
     },
   ]
