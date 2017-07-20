@@ -20,4 +20,18 @@
 		<nature>com.aptana.projects.webnature</nature>
 		<nature>com.aptana.editor.php.phpNature</nature>
 	</natures>
+<<<<<<< HEAD
+=======
+	<filteredResources>
+		<filter>
+			<id>1500447113102</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-node_modules</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+>>>>>>> 1790ade080a555eebe7431b214a3c7a97cc97c5c
 </projectDescription>
