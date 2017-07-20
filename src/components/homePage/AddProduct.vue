@@ -1,7 +1,7 @@
 <template>
 	<div class="add_product" >
 		<div class="pro_pic"><router-link to="/"><img :src="allmes.img"/></router-link></div>
-		<div><router-link to="/">{{allmes.title}}</router-link></div>
+		<div><span>{{allmes.title}}</span></div>
 		<div>
 				<div><span>{{allmes.cost}}</span><span>{{allmes.cost2}}</span></div>
 				<router-link to="/"><img src="../../../static/homePage/index_flow.png"/></router-link>
@@ -41,8 +41,7 @@
 		width 93%
 		margin auto
 		border-bottom 0.0133rem solid #eeeeee
-		a
-			
+		span			
 			color #686868
 			font-size 0.32rem
 			display block

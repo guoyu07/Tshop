@@ -27,8 +27,10 @@
      	</div>
      	<!--中间方格布局，品牌展示-->
      	<div class="brand">
-     		<ul>
-				<li v-for="val in brandImg"><img :src="i.img" v-for="i in val" /></li>
+     		<!--给父级添加点击事件，事件委托-->
+     		<ul @click="brandFn($event)">
+     			<!-- :name给自己添加自定义属性-->
+				<li v-for="val in brandImg" ><img :src="i.img" v-for="i in val" :name="i.name"/></li>
      		</ul>
      	</div>
      	<div class="product">
@@ -55,16 +57,16 @@
 	     			<router-link to="/">更多></router-link>
 	     		</div>
 	     		<div class="oolong">
-	     			<ul v-for="m in oolongProd">
-	     				<li><add-product v-bind:allmes="m" ></add-product> </li>
+	     			<ul >
+	     				<li v-for="m in oolongProd"><add-product v-bind:allmes="m" ></add-product> </li>
 	     			</ul>	     			
 	     		</div>
 	     	</div>
 	     	<!--精品推荐-->
 	     	<h2>———— 精品推荐 ————</h2>
 	     	<div class="recommend">
-	     		<ul v-for="n in recomProd">
-	     			<li><add-product v-bind:allmes="n" ></add-product></li>
+	     		<ul >
+	     			<li v-for="n in recomProd"><add-product v-bind:allmes="n" ></add-product></li>
 	     		</ul>
 	     	</div>
      	</div>
@@ -97,10 +99,10 @@ export default {
 				],
 				//中间方格的图标
 				brandImg:[
-					[{img:'../../../static/homePage/brand1.jpg'}],
-					[{img:'../../../static/homePage/brand2.png'},{img:'../../../static/homePage/brand3.png'}],
-					[{img:'../../../static/homePage/brand4.png'},{img:'../../../static/homePage/brand6.png'}],
-					[{img:'../../../static/homePage/brand5.png'},{img:'../../../static/homePage/brand7.png'}]
+					[{img:'../../../static/homePage/brand1.jpg',name:'show1'}],
+					[{img:'../../../static/homePage/brand2.png',name:'show2'},{img:'../../../static/homePage/brand3.png',name:'show3'}],
+					[{img:'../../../static/homePage/brand4.png',name:'show4'},{img:'../../../static/homePage/brand6.png',name:'show5'}],
+					[{img:'../../../static/homePage/brand5.png',name:'show6'},{img:'../../../static/homePage/brand7.png',name:'show7'}]
 				],
 				//新品上市
 				newProd:	[
@@ -148,27 +150,32 @@ export default {
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 1:
-						alert(2);
 						break;
 					case 2:
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 3:
-						alert(2);
 						break;
 					case 4:
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 5:
-						alert(2);
 						break;
-					case 0:
+					case 7:
 						this.$router.push({name:'ClassifyPage'});
 						break;
-					case 6:
-						alert(2);
+					case 8:
+						break;
+					case 9:
+						this.$router.push({name:'ClassifyPage'});
 						break;
 				}
+			},
+//			中间方格布局，品牌展示各大茶系
+			brandFn(event){
+				console.log(event.target.name);
+				
+				
 			}
 		}
 	}
@@ -178,6 +185,7 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .homepage
 	/*导航栏*/
+	background-color #fff
 	.header
 		background-color #e31939
 		height 1.2133rem
@@ -262,6 +270,7 @@ export default {
 				img
 					width 100%
 					height 2.76rem
+					vertical-align top
 					/*vertical-align top*/	
 			li:nth-child(1)
 				img
@@ -296,14 +305,11 @@ export default {
 					text-decoration none
 			.oolong
 				ul
-					width 33%
-					display inline-block
-					overflow hidden
-					margin-bottom 0.1333rem
-					li						
-						width 92%
-						margin 0 4%
-						height 6.1333rem
+					li	
+						display inline-block
+						width 32%
+					li:nth-child(3n-1)
+						margin 0 2%
 		h2
 			height 1.3733rem
 			line-height 1.3733rem
@@ -315,13 +321,14 @@ export default {
 			width 96%
 			margin 0 2%
 			ul
-				display inline-block
-				width 49%
-				/*margin 0*/
 				padding 0
 				list-style none
-			ul:nth-child(2n-1)
-				margin 0 1%
+				li
+					display inline-block
+					width 49%
+					margin-right 2%
+				li:nth-child(2n)
+					margin-right 0
 				
 											
 .show{
