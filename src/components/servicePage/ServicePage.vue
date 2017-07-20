@@ -13,7 +13,7 @@
 
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 @import "/static/css/font/iconfont.css"
       .service_box
             background-color #ffffff

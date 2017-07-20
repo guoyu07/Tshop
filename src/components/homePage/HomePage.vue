@@ -1,5 +1,8 @@
 <template>
+<<<<<<< HEAD
 <!--<<<<<<< HEAD-->
+=======
+>>>>>>> 27b812c7dbb6cf93da1f4bc6fabc2aa9a0a8228a
     <div class="homepage">
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
@@ -69,6 +72,7 @@
 	     		</ul>
 	     	</div>
      	</div>
+<<<<<<< HEAD
 
 <!--=======-->
     <div>
@@ -80,6 +84,11 @@
     </div>
 <!-->>>>>>> 54f01cada7ea9ac9e72822858f3b7054fd52b620-->
 
+=======
+    <div>
+        <router-view></router-view>
+    </div>
+>>>>>>> 27b812c7dbb6cf93da1f4bc6fabc2aa9a0a8228a
     </div>	
 </template>
 
