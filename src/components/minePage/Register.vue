@@ -1,12 +1,12 @@
 <template>
-	<div class="login" v-if="false">
+	<div class="login">
 		<div class="headers clearfix">
-			<span class="back">
-				<img src="../../../static/minePage/login/back.png" alt="" />
-			</span>
+			<router-link to="/login" class="back">
+				<img src="/static/minePage/login/back.png" alt="" />
+			</router-link>
 		</div>
 		<div class="logo">
-			<img src="../../../static/minePage/login/logo.png" alt="" />
+			<img src="/static/minePage/login/logo.png" alt="" />
 		</div>
 		<div class="paw">
 			<input type="text" placeholder="账号" />
@@ -31,22 +31,21 @@
 	export default {
 		data:function(){
 			return{
-				arr:[{'src':require('../../../static/minePage/login/qq.png')},
-					 {'src':require('../../../static/minePage/login/weixin.png')},
-					 {'src':require('../../../static/minePage/login/weibo.png')},
-					 {'src':require('../../../static/minePage/login/baidu.png')}],
-				show: false
+				arr:[
+				    {
+				        'src':require('../../../static/minePage/login/qq.png')
+					},
+					{
+						'src':require('../../../static/minePage/login/weixin.png')
+					},
+					{
+					    'src':require('../../../static/minePage/login/weibo.png')
+					},
+					{
+					    'src':require('../../../static/minePage/login/baidu.png')
+					}
+				]
 			}
-		},
-		props: ['isShow'],
-		methods: {
-//			isHide: function(){
-//				this.show = false;
-//			}
-		},
-		created: function(){
-			console.log(this.isShow)
-//				this.show = this.isShow
 		}
 	}
 </script>
@@ -62,7 +61,7 @@
 	.headers
 		height 1rem
 		line-height 1rem
-		background #48382b
+		background #e71f19
 		color #a5a09c
 		padding 0.3rem
 		.back
@@ -93,7 +92,7 @@
 		span
 			display inline-block
 			padding 0.2rem 4rem
-			background-color #48382b
+			background-color #e71f19
 			border-radius 2rem
 			font-size 0.4rem
 			color #fff
