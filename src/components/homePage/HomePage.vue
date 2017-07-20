@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{i}}
+       
 
     </div>
 

@@ -27,7 +27,7 @@
                     {
                         'id': 3,
                         'name': '分类',
-                        'url': '/classifyPage',
+                        'url': '/classify',
                         'icon': 'icon-crownfill'
                     },
                     {
