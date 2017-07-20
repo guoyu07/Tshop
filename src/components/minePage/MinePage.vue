@@ -89,7 +89,7 @@
 	.login
 		text-align center
 		margin-bottom 0.5rem
-		span
+		a
 			display inline-block
 			padding 0.2rem 0.4rem
 			border 3px solid #c3ad88

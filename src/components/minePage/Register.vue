@@ -1,5 +1,5 @@
 <template>
-	<div class="login">
+	<div class="login" v-if="false">
 		<div class="headers clearfix">
 			<span class="back">
 				<img src="../../../static/minePage/login/back.png" alt="" />
@@ -35,8 +35,19 @@
 					 {'src':require('../../../static/minePage/login/weixin.png')},
 					 {'src':require('../../../static/minePage/login/weibo.png')},
 					 {'src':require('../../../static/minePage/login/baidu.png')}],
+				show: false
 			}
 		},
+		props: ['isShow'],
+		methods: {
+//			isHide: function(){
+//				this.show = false;
+//			}
+		},
+		created: function(){
+			console.log(this.isShow)
+//				this.show = this.isShow
+		}
 	}
 </script>
 
@@ -70,7 +81,7 @@
 		padding 0 0.2rem
 		input
 			width 100%
-			height 0.6rem
+			height 1rem
 			border-bottom 3px solid #000
 			padding 0.1rem 0.1rem
 			font-size 0.5rem

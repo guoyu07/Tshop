@@ -4,7 +4,7 @@
 			<router-link to="/mine" class="back">
 				<img src="../../../static/minePage/login/back.png" alt="" />
 			</router-link>
-			<span class="register clearfix">注册新用户</span>
+			<span class="register clearfix" @click="isShow=!isShow">注册新用户</span>
 		</div>
 		<div class="logo">
 			<img src="../../../static/minePage/login/logo.png" alt="" />
@@ -24,10 +24,12 @@
 				</span>
 			</div>
 		</div>
+		<register :isShow="isShow"></register>
 	</div>
 </template>
 
 <script type="text/javascript">
+	import Register from './Register'
 	export default {
 		data:function(){
 			return {
@@ -35,8 +37,12 @@
 					 {'src':require('../../../static/minePage/login/weixin.png')},
 					 {'src':require('../../../static/minePage/login/weibo.png')},
 					 {'src':require('../../../static/minePage/login/baidu.png')}],
+				isShow: false
 			}
 		},
+		components:{
+			Register
+		}
 	}
 </script>
 
@@ -77,18 +83,20 @@
 		padding 0 0.2rem
 		input
 			width 100%
-			height 0.6rem
+			height 1rem
+			border 1px solid #fff
 			border-bottom 3px solid #000
 			padding 0.1rem 0.1rem
 			font-size 0.5rem
 			margin-bottom 0.5rem
+			 
 	.logins
 		margin-top 0.5rem
 		text-align center
 		margin-bottom 5%
 		span
 			display inline-block
-			padding 0.2rem 4rem
+			padding 0.4rem 4rem
 			background-color #48382b
 			border-radius 2rem
 			font-size 0.4rem
