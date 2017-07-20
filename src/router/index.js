@@ -42,36 +42,36 @@ export default new Router({
         name: 'ClassifyPage',
         component: ClassifyPage,
         children:[
-            {path: '/classify/flowerT',component:flowerT},
-            {path: '/classify/sixT',component:sixT},
-            {path: '/classify/puerT',component:puerT},
-            {path: '/classify/middleT',component:middleT},
-            {path: '/classify/yusanT',component:yusanT},
-            {path: '/classify/windT',component:windT},
-            {path: '/classify/goldT',component:goldT}
+            {path: '/classify/flowerT', component: flowerT},
+            {path: '/classify/sixT', component: sixT},
+            {path: '/classify/puerT', component: puerT},
+            {path: '/classify/middleT', component: middleT},
+            {path: '/classify/yusanT', component: yusanT},
+            {path: '/classify/windT', component: windT},
+            {path: '/classify/goldT', component: goldT}
         ]
     },
     {
         path: '/mine',
         name: 'MinePage',
         component: MinePage,
-        children:[
-        		{
-        		    path:'/mine/login',
-                    name:'Login',
-                    component:Login
-        		}
+        children: [
+            {
+                path: '/mine/login',
+                name: 'Login',
+                component: Login
+            }
         ]
     },
     {
-    		path: '/details',
+        path: '/details',
         name: 'details',
         component: DetailsPage
     },
     {
-      path: '/screen',
-      name: 'screen',
-      component: Screen
-    },
+        path: '/screen',
+        name: 'screen',
+        component: Screen
+    }
   ]
 })

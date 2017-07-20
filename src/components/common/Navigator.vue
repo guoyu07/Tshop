@@ -68,8 +68,6 @@
                     border-top 1px solid #e6e6e6
                     text-align center
                     font-size 0.32rem
-            a.active
-                    color #f29004
             a
                     -webkit-box-flex 1
                     display block
@@ -83,11 +81,5 @@
                     font-size 0.32rem
             #nav .active
                     color: #6ab439
-                    /*font-size  0.6667rem*/
-                    font-size 0.6667rem
-            p
-                    margin-top -0.4333rem
-                    font-size 0.4rem
-            #nav .router-link-exact-active
-                    color #6ab439
+
 </style>
