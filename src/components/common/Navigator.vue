@@ -69,11 +69,12 @@
                     text-decoration none
                     color #c3ad88
                     line-height 0.9rem
-
             i
-                    font-size  0.6667rem
+                    /*font-size  0.6667rem*/
+                    font-size 0.6667rem
             p
                     margin-top -0.4333rem
+                    font-size 0.4rem
             #nav .router-link-exact-active
-                    color: #6ab439
+                    color #6ab439
 </style>
