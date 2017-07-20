@@ -4,6 +4,8 @@
             <li v-for="(item,index) in carList">
                 <div  class="check">
                     <input type="checkbox" v-model="item.check">
+                    <span>商家</span>
+                    <span>等待卖家付款</span>
                 </div>
                 <div class="img">
                     <img :src="item.src" alt="">
@@ -27,7 +29,7 @@
             <div @click="checkAll">
                 <input type="checkbox" v-model="isCheckAll"><span>全选</span>
             </div>
-            <div>结算({{ checked_count }})</div>
+            <div>付款({{ checked_count }})</div>
             <div>
                 <p>合计：<span>￥{{ price_all }}</span></p>
                 <span>已优惠：￥{{30}}</span>
@@ -149,25 +151,6 @@
         background-color #fff
         margin-top 1rem
         padding 0 0.2rem
-        .head
-            overflow hidden
-            height 1rem
-            div
-                float left
-                padding 0.3rem 0.2rem
-                input
-                    width 0.4rem
-                    height 0.4rem
-            p
-                float left
-                padding-left 0.5rem
-                line-height 1rem
-                font-size 0.32rem
-            span
-                line-height 1rem
-                float right
-                padding 0 0.32rem
-                border-left 1px solid #ccc
         ul
             li
                 position relative
@@ -175,13 +158,16 @@
                 overflow hidden
                 background-color #f5f5f5
                 .check
-                    float left
-                    line-height 2rem
                     padding 0 0.2rem
+                    line-height 0.8rem
                     input
                         line-height 2rem
                         width 0.4rem
                         height 0.4rem
+                        vertical-align middle
+                    span:nth-child(3)
+                        color red
+                        float right
                 .img
                     width 2rem
                     height 2rem
@@ -209,7 +195,7 @@
                     >span
                         position absolute
                         right 0.4rem
-                        top 1.1rem
+                        top 1.5rem
                         font-size 0.4rem
                 .edit
                     float left
