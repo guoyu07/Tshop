@@ -3,11 +3,11 @@
 	<swiper :options="swiperOption">
 	<!--轮播图-->
    	<swiper-slide v-for="slide in banners" >
-   		<ul v-for=" k in slide">
-   			<li>
+   		<ul >
+   			<li v-for=" k in slide">
    				<div class="add_product" >
 					<div class="pro_pic"><router-link to="/"><img :src="k.img"/></router-link></div>
-					<div><router-link to="/">{{k.title}}</router-link></div>
+					<div><span>{{k.title}}</span></div>
 					<div>
 						<div><span>{{k.cost}}</span><span>{{k.cost2}}</span></div>
 						<router-link to="/"><img src="../../../static/homePage/index_flow.png"/></router-link>
@@ -58,14 +58,13 @@ import Vue from 'vue'
 <style lang="stylus" rel="stylesheet/stylus" scoped>
  swiper-slide
 	ul
-		display inline-block
-		width 33%
+		display flex
 		margin 0
 		padding 0
 		list-style none
 		li
-			width 92%
-			margin 0 4%
+			flex 1
+			margin-left 1%
 			.add_product
 				width 100%
 				div:nth-child(1)
@@ -76,7 +75,7 @@ import Vue from 'vue'
 					width 93%
 					margin auto
 					border-bottom 0.0133rem solid #eeeeee
-					a
+					span
 						color #686868
 						font-size 0.32rem
 						display block
