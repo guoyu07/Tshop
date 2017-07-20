@@ -30,11 +30,11 @@
 	          loop: true
 	        }
 	      }
-	  },		
+	  	},
 		components: {
 		    swiper,
 		    swiperSlide
-		  }
+		}
 	}
 </script>
 

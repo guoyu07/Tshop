@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div class="homepage">
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
@@ -69,17 +68,9 @@
 	     		</ul>
 	     	</div>
      	</div>
-
-=======
     <div>
-<<<<<<< HEAD
         <router-view></router-view>
-=======
-
->>>>>>> 2d94ce5f7b4dbb82c49a1e7e76036ca5c84e15be
     </div>
->>>>>>> 54f01cada7ea9ac9e72822858f3b7054fd52b620
-
     </div>	
 </template>
 
