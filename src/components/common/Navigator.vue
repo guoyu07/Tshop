@@ -1,6 +1,6 @@
 <template>
     <nav id="nav">
-        <router-link :to="item.url" v-for="item in navItems" :key="item.id">
+        <router-link :to="item.url" v-for="(item,index) in navItems" :key="item.id" @click.native="active(index)" :class="{active: i==index}">
             <i class="iconfont" :class="item.icon"></i>
             <p>{{ item.name }}</p>
         </router-link>
@@ -13,36 +13,43 @@
             return {
                 navItems: [
                     {
-                        'id': 1,
+                        'id': 0,
                         'name': '首页',
                         'url': '/',
                         'icon': 'icon-shouye'
                     },
                     {
-                        'id': 2,
+                        'id': 1,
                         'name': '客服',
                         'url': '/service',
                         'icon': 'icon-dingwei'
                     },
                     {
-                        'id': 3,
+                        'id': 2,
                         'name': '分类',
-                        'url': '/classifyPage',
+                        'url': '/classify',
                         'icon': 'icon-fenlei'
                     },
                     {
-                        'id': 4,
+                        'id': 3,
                         'name': '购物车',
                         'url': '/car',
                         'icon': 'icon-gouwuchekong'
                     },
                     {
-                        'id': 5,
+                        'id': 4,
                         'name': '我的',
                         'url': '/mine',
                         'icon': 'icon-wode'
                     }
-                ]
+                ],
+                i: ''
+            }
+        },
+        methods: {
+            active: function (index) {
+                this.i = index;
+
             }
         }
     }
@@ -61,19 +68,18 @@
                     border-top 1px solid #e6e6e6
                     text-align center
                     font-size 0.32rem
-            a.active
-                    color #f29004
             a
                     -webkit-box-flex 1
                     display block
                     text-decoration none
                     color #c3ad88
                     line-height 0.9rem
-
             i
-                    font-size  0.6667rem
+                    font-size  0.8rem
             p
                     margin-top -0.4333rem
-            #nav .router-link-exact-active
+                    font-size 0.32rem
+            #nav .active
                     color: #6ab439
+
 </style>
