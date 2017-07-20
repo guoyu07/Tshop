@@ -1,5 +1,5 @@
 <template>
-<<<<<<< HEAD
+<!--<<<<<<< HEAD-->
     <div class="homepage">
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
@@ -70,15 +70,15 @@
 	     	</div>
      	</div>
 
-=======
+<!--=======-->
     <div>
-<<<<<<< HEAD
+<!--<<<<<<< HEAD-->
         <router-view></router-view>
-=======
+<!--=======-->
 
->>>>>>> 2d94ce5f7b4dbb82c49a1e7e76036ca5c84e15be
+<!-->>>>>>> 2d94ce5f7b4dbb82c49a1e7e76036ca5c84e15be-->
     </div>
->>>>>>> 54f01cada7ea9ac9e72822858f3b7054fd52b620
+<!-->>>>>>> 54f01cada7ea9ac9e72822858f3b7054fd52b620-->
 
     </div>	
 </template>
@@ -157,10 +157,27 @@ export default {
 			navFn(index){
 				switch (index){
 					case 0:
-//						console.log(this.$router);
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 1:
+						alert(2);
+						break;
+					case 2:
+						this.$router.push({name:'ClassifyPage'});
+						break;
+					case 3:
+						alert(2);
+						break;
+					case 4:
+						this.$router.push({name:'ClassifyPage'});
+						break;
+					case 5:
+						alert(2);
+						break;
+					case 0:
+						this.$router.push({name:'ClassifyPage'});
+						break;
+					case 6:
 						alert(2);
 						break;
 				}
