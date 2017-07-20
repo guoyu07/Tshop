@@ -23,17 +23,10 @@
 			</div>
 		</div>
 		<!--头部-->
-<<<<<<< HEAD
 		<div class="header">
 			<div class="back" @click="backFn"></div>
 			<div class="pgTitle">{{ pgTitle }}</div>
 			<div class="menu" @click="menuFn"></div>
-=======
-		<div class="header">
-			<div class="back" @click="backFn"></div>
-			<div class="pgTitle">{{ pgTitle }}</div>
-			<div class="menu" @click="menuFn"></div>
->>>>>>> e442ec6b42e0383397060031623a00c16da457c9
 		</div>
 		<!--分类内容-->
 		<div class="ClaMain">
@@ -48,21 +41,13 @@
 		</div>
 		<div class="text"></div>
 	</div>
-	
 </template>
 
 <script>
-<<<<<<< HEAD
 	export default {
 		data() {
 			return {
 				pgTitle:"全部分类",
-=======
-	export default {
-		data() {
-			return {
-				pgTitle:"全部分类",
->>>>>>> e442ec6b42e0383397060031623a00c16da457c9
 				classifys:[
 					{path:"/classify/flowerT",theme:"花茶"},
 					{path:"/classify/sixT",theme:"六大茶山"},
@@ -72,13 +57,8 @@
 					{path:"/classify/windT",theme:"风牌红茶"},
 					{path:"/classify/goldT",theme:"金灶"},
 				],
-<<<<<<< HEAD
 				bool:false,
 			}
-=======
-				bool:false,
-			}
->>>>>>> e442ec6b42e0383397060031623a00c16da457c9
 		},
 		methods:{
 			menuFn:function(){
@@ -91,15 +71,9 @@
 //				console.log(this.classifys)
 			}
 		},
-<<<<<<< HEAD
 		mounted: function () {
             console.log("1")
         }
-=======
-		mountned:{
-			
-		}
->>>>>>> e442ec6b42e0383397060031623a00c16da457c9
 	}
 </script>
 
@@ -133,25 +107,19 @@
 					padding 0.1666rem 0.1333rem
 					border-bottom 1px solid lightgray
 					.bgH
-<<<<<<< HEAD
 						position absolute
 						left 5%
-=======
-						position absolute
-						left 5%
->>>>>>> e442ec6b42e0383397060031623a00c16da457c9
 						top 0.1rem
 						display inline-block
 						width 0.7rem
 						height 0.7rem
-						background url('../../../static/img/ClassifyPage/homes.png') no-repeat
+						background url('/static/img/ClassifyPage/homes.png') no-repeat
 						background-position center center
 						background-size 90%
 					.fontsH
 						font-size 0.4rem
 						display inline-block
 						margin-left 0.85rem
-<<<<<<< HEAD
 				.toClassify
 					position relative
 					padding 0.1666rem 0.1333rem
@@ -160,7 +128,7 @@
 						display inline-block
 						width 0.7rem
 						height 0.7rem
-						background url('../../../static/img/ClassifyPage/classify.png') no-repeat
+						background url('/static/img/ClassifyPage/classify.png') no-repeat
 						background-position center center
 						background-size 120%
 					.fontCl
@@ -169,25 +137,6 @@
 						top 0.2333rem
 						font-size 0.4rem
 						display inline-block
-=======
-				.toClassify
-					position relative
-					padding 0.1666rem 0.1333rem
-					border-bottom 1px solid lightgray
-					.bgCl
-						display inline-block
-						width 0.7rem
-						height 0.7rem
-						background url('../../../static/img/ClassifyPage/classify.png') no-repeat
-						background-position center center
-						background-size 120%
-					.fontCl
-						position absolute
-						left 0
-						top 0.2333rem
-						font-size 0.4rem
-						display inline-block
->>>>>>> e442ec6b42e0383397060031623a00c16da457c9
 						margin-left 1rem
 				.toCar
 					position relative
@@ -198,7 +147,7 @@
 						display inline-block
 						width 0.7rem
 						height 0.7rem
-						background url('../../../static/img/ClassifyPage/shopCar.png') no-repeat
+						background url('/static/img/ClassifyPage/shopCar.png') no-repeat
 						background-position center center
 						background-size 90%
 					.fontCa
@@ -217,7 +166,7 @@
 						display inline-block
 						width 0.7rem
 						height 0.7rem
-						background url('../../../static/img/ClassifyPage/my.png') no-repeat
+						background url('/static/img/ClassifyPage/my.png') no-repeat
 						background-position center center
 						background-size 90%
 					.fontM
@@ -243,7 +192,7 @@
 				top 0
 				width 1.2rem
 				height 1.2rem
-				background url('../../../static/img/ClassifyPage/back.png') no-repeat
+				background url('/static/img/ClassifyPage/back.png') no-repeat
 				background-position center center
 				background-size 50%
 			.pgTitle
@@ -255,7 +204,7 @@
 				top 0
 				width 1.2rem
 				height 1.2rem
-				background url('../../../static/img/ClassifyPage/menu.png') no-repeat
+				background url('/static/img/ClassifyPage/menu.png') no-repeat
 				background-position center center
 				background-size 100%
 		/*分类内容*/
@@ -277,10 +226,8 @@
 					border-bottom 0.0333rem solid #f5f5f5
 					font-size 0.45rem
 					padding 0.4666rem 0
-				> div:nth-child(1)
+				>div:nth-child(1)
 					border-top 0.0666rem solid #f5f5f5
-				> div:last-child
-					border-bottom 0.0666rem solid #f5f5f5
 			.ClaMain_right
 				position absolute
 				right 0
@@ -298,14 +245,8 @@
 					border-radius 0.1333rem
 					margin 3.5% auto
 					font-size 0.4rem
-<<<<<<< HEAD
 					color #fff
-		.text{
-			height: 0.3333rem;
-=======
-					color #fff
-		.text{
-			height: 0.3333rem;
->>>>>>> e442ec6b42e0383397060031623a00c16da457c9
-		}
+		.text
+			height: 0.3333rem
+			color #fff
 </style>

@@ -6,13 +6,6 @@ import ServicePage from '@/components/servicePage/ServicePage'
 import CarPage from '@/components/carPage/CarPage'
 import MinePage from '@/components/minePage/MinePage'
 import ClassifyPage from '@/components/classifyPage/ClassifyPage'
-	import flowerT from '@/components/classifyPage/sons/flowerT'
-	import sixT from '@/components/classifyPage/sons/sixT'
-	import puerT from '@/components/classifyPage/sons/puerT'
-	import middleT from '@/components/classifyPage/sons/middleT'
-	import yusanT from '@/components/classifyPage/sons/yusanT'
-	import windT from '@/components/classifyPage/sons/windT'
-	import goldT from '@/components/classifyPage/sons/goldT'
 import Login from '@/components/minePage/Login'
 import flowerT from '@/components/classifyPage/sons/flowerT'
 import sixT from '@/components/classifyPage/sons/sixT'
@@ -55,14 +48,7 @@ export default new Router({
             {path: '/classify/middleT',component:middleT},
             {path: '/classify/yusanT',component:yusanT},
             {path: '/classify/windT',component:windT},
-            {path: '/classify/goldT',component:goldT},
-        		{path: '/classify/flowerT',component:flowerT},
-        		{path: '/classify/sixT',component:sixT},
-        		{path: '/classify/puerT',component:puerT},
-        		{path: '/classify/middleT',component:middleT},
-        		{path: '/classify/yusanT',component:yusanT},
-        		{path: '/classify/windT',component:windT},
-        		{path: '/classify/goldT',component:goldT},
+            {path: '/classify/goldT',component:goldT}
         ]
     },
     {
