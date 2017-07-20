@@ -27,8 +27,17 @@
                     {
                         'id': 2,
                         'name': '分类',
+<<<<<<< HEAD
                         'url': '/classify',
+=======
+<<<<<<< HEAD
+                        'url': '/classify',
+                        'icon': 'icon-crownfill'
+=======
+                        'url': '/classifyPage',
+>>>>>>> e442ec6b42e0383397060031623a00c16da457c9
                         'icon': 'icon-fenlei'
+>>>>>>> 9f917c26b3b9ba7c94987c2ebc1ce3cf8eb384e0
                     },
                     {
                         'id': 3,
@@ -76,12 +85,21 @@
                     text-decoration none
                     color #c3ad88
                     line-height 0.9rem
-
             i
+<<<<<<< HEAD
                     font-size  0.8rem
             p
                     margin-top -0.4333rem
                     font-size 0.32rem
             #nav .active
                     color: #6ab439
+=======
+                    /*font-size  0.6667rem*/
+                    font-size 0.6667rem
+            p
+                    margin-top -0.4333rem
+                    font-size 0.4rem
+            #nav .router-link-exact-active
+                    color #6ab439
+>>>>>>> e442ec6b42e0383397060031623a00c16da457c9
 </style>

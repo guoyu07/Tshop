@@ -1,4 +1,11 @@
 <template>
+<<<<<<< HEAD
+    <div>
+       
+
+    </div>
+
+=======
     <div class="homepage">
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
@@ -69,6 +76,7 @@
 	     	</div>
      	</div>
     </div>	
+>>>>>>> 9f917c26b3b9ba7c94987c2ebc1ce3cf8eb384e0
 </template>
 
 <script>

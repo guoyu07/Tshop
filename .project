@@ -21,10 +21,16 @@
 		<nature>com.aptana.editor.php.phpNature</nature>
 	</natures>
 <<<<<<< HEAD
+	<filteredResources>
+		<filter>
+			<id>1500446184973</id>
+=======
+<<<<<<< HEAD
 =======
 	<filteredResources>
 		<filter>
 			<id>1500447113102</id>
+>>>>>>> 9f917c26b3b9ba7c94987c2ebc1ce3cf8eb384e0
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -33,5 +39,8 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+<<<<<<< HEAD
+=======
 >>>>>>> 1790ade080a555eebe7431b214a3c7a97cc97c5c
+>>>>>>> 9f917c26b3b9ba7c94987c2ebc1ce3cf8eb384e0
 </projectDescription>
