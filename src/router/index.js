@@ -6,6 +6,8 @@ import ServicePage from '@/components/servicePage/ServicePage'
 import CarPage from '@/components/carPage/CarPage'
 import ClassifyPage from '@/components/classifyPage/ClassifyPage'
 import MinePage from '@/components/minePage/MinePage'
+import Login from '@/components/minePage/Login'
+import Register from '@/components/minePage/Register'
 
 Vue.use(Router)
 
@@ -34,7 +36,10 @@ export default new Router({
     {
         path: '/mine',
         name: 'MinePage',
-        component: MinePage
+        component: MinePage,
+        children:[
+        		{path:'/mine/login',name:'Login',component:Login}
+        ]
     },
   ]
 })
