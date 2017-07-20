@@ -27,8 +27,13 @@
                     {
                         'id': 3,
                         'name': '分类',
+<<<<<<< HEAD
+                        'url': '/classify',
+                        'icon': 'icon-crownfill'
+=======
                         'url': '/classifyPage',
                         'icon': 'icon-fenlei'
+>>>>>>> 9f917c26b3b9ba7c94987c2ebc1ce3cf8eb384e0
                     },
                     {
                         'id': 4,
