@@ -1,5 +1,6 @@
 <template>
     <div class="homepage">
+    		<div class="goTop" @click="goTop"></div>
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
      		<span>茶叶电子专柜</span>
@@ -176,6 +177,10 @@ export default {
 				console.log(event.target.name);
 				
 				
+			},
+//			一键返回顶部
+			goTop:function(){
+				document.body.scrollTop = 0;
 			}
 		}
 	}
@@ -184,6 +189,17 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .homepage
+	.goTop
+			width 1.5rem
+			height 1.5rem
+			border-radius 50%
+			position fixed
+			right 0.2rem
+			bottom 2rem
+			background url('../../../static/img/ClassifyPage/goTop.png') no-repeat
+			background-position center center
+			background-size 100%
+			background-color rgba(0,0,0,0.4)
 	/*导航栏*/
 	background-color #fff
 	.header

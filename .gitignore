@@ -5,5 +5,9 @@ package
 DS_Store
 .DS_Store
 index.html
+<<<<<<< HEAD
 index.html
 .project
+=======
+.project
+>>>>>>> 66168e0df7a3f33bf0da6d52cd0b2fc83f59ea14
