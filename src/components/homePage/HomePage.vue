@@ -182,7 +182,6 @@ export default {
 //			中间方格布局，品牌展示各大茶系
 			brandFn(event){
 				console.log(event.target.name);
-<<<<<<< HEAD
 				switch (event.target.name){
 					case '品牌展示':
 						this.$router.push({name:'brand',params:{name:event.target.name}});
@@ -206,14 +205,12 @@ export default {
 						this.$router.push({name:'details',params:{name:event.target.name}});
 						break;
 				}
-=======
 				
 				
 			},
 //			一键返回顶部
 			goTop:function(){
 				document.body.scrollTop = 0;
->>>>>>> 4444d36f3d8e31391f7ed0ca9cbf0c2f4ee0fb2d
 			}
 		}
 	}
