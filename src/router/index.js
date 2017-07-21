@@ -23,9 +23,82 @@ import goldT from '@/components/classifyPage/sons/goldT'
 
 import DetailsPage from '@/components/classifyPage/details/DetailsPage'
 import Screen from '@/components/classifyPage/details/Screen'
+import BrandDisplay from '@/components/homePage/BrandDisplay'
+import LimitTime from '@/components/homePage/LimitTime'
+import Bargain from '@/components/homePage/Bargain'
 Vue.use(Router)
 
 export default new Router({
+<<<<<<< HEAD
+  routes: [
+    {
+      path: '/',
+      name: 'HomePage',
+      component: HomePage
+    },
+    {
+        path: '/service',
+        name: 'ServicePage',
+        component: ServicePage
+    },
+    {
+        path: '/car',
+        name: 'CarPage',
+        component: CarPage
+    },
+    {
+        path: '/classify',
+        name: 'ClassifyPage',
+        component: ClassifyPage,
+        children:[
+            {path: '/classify/flowerT', component: flowerT},
+            {path: '/classify/sixT', component: sixT},
+            {path: '/classify/puerT', component: puerT},
+            {path: '/classify/middleT', component: middleT},
+            {path: '/classify/yusanT', component: yusanT},
+            {path: '/classify/windT', component: windT},
+            {path: '/classify/goldT', component: goldT}
+        ]
+    },
+    {
+        path: '/mine',
+        name: 'MinePage',
+        component: MinePage,
+        children: [
+            {
+                path: '/mine/login',
+                name: 'Login',
+                component: Login
+            }
+        ]
+    },
+    {
+        path: '/details',
+        name: 'details',
+        component: DetailsPage
+    },
+    {
+        path: '/screen',
+        name: 'screen',
+        component: Screen
+    },
+    {
+    path:'/brand',
+    name:'brand',
+    component:BrandDisplay
+    },
+    {
+    path:'/limit',
+    name:'LimitTime',
+    component:LimitTime
+    },
+     {
+         path:'/bargain',
+         name:'Bargain',
+         component:Bargain
+     }
+  ]
+=======
     routes: [
         {
             path: '/',
@@ -98,4 +171,5 @@ export default new Router({
             component: EvaluateAwait
         }
     ]
+>>>>>>> 4444d36f3d8e31391f7ed0ca9cbf0c2f4ee0fb2d
 })
