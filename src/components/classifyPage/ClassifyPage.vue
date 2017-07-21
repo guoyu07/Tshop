@@ -72,11 +72,8 @@
 			}
 		},
 		mounted: function () {
-<<<<<<< HEAD
            //window.scrollTop = 0;
-=======
 //			document.getElementById("ClassFiyPage").scrollTop = 1000;
->>>>>>> 66168e0df7a3f33bf0da6d52cd0b2fc83f59ea14
         }
 	}
 </script>
