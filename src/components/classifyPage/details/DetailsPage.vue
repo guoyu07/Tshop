@@ -21,6 +21,7 @@
 				<img :src="picPath2" class="list" v-show="!bool" @click="L_group"/>
 			</div>
 		</div>
+		<div class="goTop" @click="goTop"></div>
 	</div>
 	
 </template>
@@ -48,6 +49,9 @@
 			},
 			screenFn:function(){
 				this.$router.push("/screen");
+			},
+			goTop:function(){
+				document.body.scrollTop = 0;
 			}
 		}
 	}
@@ -152,5 +156,16 @@
 					/*display none*/
 					width 0.8rem
 					height 0.8rem
+		.goTop
+			width 1.5rem
+			height 1.5rem
+			border-radius 50%
+			position fixed
+			right 0.2rem
+			bottom 2rem
+			background url('../../../../static/img/ClassifyPage/goTop.png') no-repeat
+			background-position center center
+			background-size 100%
+			background-color rgba(0,0,0,0.4)
 				
 </style>

@@ -3,10 +3,10 @@
 		<div>
 			<ul>
 				<li class="head_p">
-					<div><img src="../../../static/minePage/1.png"/></div>
+					<div><img src="/static/minePage/1.png"/></div>
 				</li>
 				<li class="login">
-					<router-link to="/mine/login">登录</router-link>
+					<router-link to="/login">登录</router-link>
 				</li>
 				<li class="list">
 					<span>收藏</span>
@@ -15,13 +15,13 @@
 				</li>
 			</ul>
 			<div class="order">
-				<span href="">
+				<router-link to="/orderList">
 					全部订单
-					<img src="../../../static/minePage/11.png" alt="" />
-				</span>
+					<img src="/static/minePage/11.png" alt="" />
+				</router-link>
 			</div>
 			<ul class="nav">
-				<li v-for="i in arr"><span>{{i.title}}</span></li>
+				<li v-for="i in arr"><router-link :to="i.path">{{i.title}}</router-link></li>
 			</ul>
 			<ul class="ipt">
 				<li>
@@ -32,38 +32,39 @@
 				</li>
 			</ul>
 		</div>
-		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-	import Login from './Login'
-	export default {
-		data:function(){
-			return {
-				arr:[{'title':'代付款'},
-					 {'title':'代发货'},
-					 {'title':'待收货'},
-					 {'title':'待评价'}],
-				arr1:[{'name':'我的购物车','src':require('../../../static/minePage/11.png')},
-					 {'name':'我的会员','src':require('../../../static/minePage/11.png')},
-					 {'name':'客服热线','src':require('../../../static/minePage/11.png')},
-					 {'name':'我的上传','src':require('../../../static/minePage/11.png')},
-					 {'name':'我的设置','src':require('../../../static/minePage/11.png')}],
-				arr2:[{'path':'/mine/login'}]
-			}
-		},
-		methods:{
-			loginFn:function(){
-				console.log(1);
-			},
-		},
-		components:{
-			Login
-		}
-	}
+    import Login from './Login'
+    export default {
+        data:function(){
+            return {
+                arr:[
+                    { 'title': '待付款', 'path': '/payAwait'},
+                    { 'title': '待发货', 'path': '/sendAwait'},
+                    { 'title': '待收货', 'path': '/takeAwait'},
+                    { 'title': '待评价', 'path': '/evaluateAwait'}
+				],
+                arr1:[{'name':'我的购物车','src':require('../../../static/minePage/11.png')},
+                    {'name':'我的会员','src':require('../../../static/minePage/11.png')},
+                    {'name':'客服热线','src':require('../../../static/minePage/11.png')},
+                    {'name':'我的上传','src':require('../../../static/minePage/11.png')},
+                    {'name':'我的设置','src':require('../../../static/minePage/11.png')}],
+                arr2:[{'path':'/mine/login'}]
+            }
+        },
+        methods:{
+            loginFn:function(){
+                console.log(1);
+            },
+        },
+        components:{
+            Login
+        }
+    }
 </script>
-	
+
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 	.head_p
 		text-align center
@@ -89,7 +90,7 @@
 	.login
 		text-align center
 		margin-bottom 0.5rem
-		span
+		a
 			display inline-block
 			padding 0.2rem 0.4rem
 			border 3px solid #c3ad88
@@ -121,26 +122,26 @@
 		li
 			flex 1
 			text-align center
-			span
+			a
 				display block
 				font-size 0.3rem
 				color #a6a6a6
 				padding-top 0.8rem
-				
+
 		li:nth-child(1)
-			span
+			a
 				background url('../../../static/minePage/2.png') 50% -0.1rem no-repeat
 				background-size 1rem
 		li:nth-child(2)
-			span
+			a
 				background url('../../../static/minePage/3.png') 50% -0.1rem no-repeat
 				background-size 1rem
 		li:nth-child(3)
-			span
+			a
 				background url('../../../static/minePage/4.png') 50% -0.2rem no-repeat
 				background-size 1rem
 		li:nth-child(4)
-			span
+			a
 				background url('../../../static/minePage/5.png') 50% -0.1rem no-repeat
 				background-size 1rem
 	.ipt
@@ -164,7 +165,7 @@
 		left 0
 		top 0
 		z-index 10
-		display none	
+		display none
 		.show
 			display block
 </style>

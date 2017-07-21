@@ -1,5 +1,6 @@
 <template>
     <div class="homepage">
+    		<div class="goTop" @click="goTop"></div>
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
      		<span>茶叶电子专柜</span>
@@ -181,6 +182,7 @@ export default {
 //			中间方格布局，品牌展示各大茶系
 			brandFn(event){
 				console.log(event.target.name);
+<<<<<<< HEAD
 				switch (event.target.name){
 					case '品牌展示':
 						this.$router.push({name:'brand',params:{name:event.target.name}});
@@ -204,6 +206,14 @@ export default {
 						this.$router.push({name:'details',params:{name:event.target.name}});
 						break;
 				}
+=======
+				
+				
+			},
+//			一键返回顶部
+			goTop:function(){
+				document.body.scrollTop = 0;
+>>>>>>> 4444d36f3d8e31391f7ed0ca9cbf0c2f4ee0fb2d
 			}
 		}
 	}
@@ -212,6 +222,17 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .homepage
+	.goTop
+			width 1.5rem
+			height 1.5rem
+			border-radius 50%
+			position fixed
+			right 0.2rem
+			bottom 2rem
+			background url('../../../static/img/ClassifyPage/goTop.png') no-repeat
+			background-position center center
+			background-size 100%
+			background-color rgba(0,0,0,0.4)
 	/*导航栏*/
 	background-color #fff
 	.header

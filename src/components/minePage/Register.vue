@@ -1,12 +1,8 @@
 <template>
 	<div class="login">
-		<div class="headers clearfix">
-			<span class="back">
-				<img src="../../../static/minePage/login/back.png" alt="" />
-			</span>
-		</div>
+		<back></back>
 		<div class="logo">
-			<img src="../../../static/minePage/login/logo.png" alt="" />
+			<img src="/static/minePage/login/logo.png" alt="" />
 		</div>
 		<div class="paw">
 			<input type="text" placeholder="账号" />
@@ -28,15 +24,30 @@
 </template>
 
 <script type="text/javascript">
+	import Back from '../common/Back'
+
 	export default {
 		data:function(){
 			return{
-				arr:[{'src':require('../../../static/minePage/login/qq.png')},
-					 {'src':require('../../../static/minePage/login/weixin.png')},
-					 {'src':require('../../../static/minePage/login/weibo.png')},
-					 {'src':require('../../../static/minePage/login/baidu.png')}],
+				arr:[
+				    {
+				        'src':require('../../../static/minePage/login/qq.png')
+					},
+					{
+						'src':require('../../../static/minePage/login/weixin.png')
+					},
+					{
+					    'src':require('../../../static/minePage/login/weibo.png')
+					},
+					{
+					    'src':require('../../../static/minePage/login/baidu.png')
+					}
+				]
 			}
 		},
+		components: {
+            Back
+		}
 	}
 </script>
 
@@ -48,18 +59,6 @@
 		left 0
 		width 100%
 		height 100%
-	.headers
-		height 1rem
-		line-height 1rem
-		background #48382b
-		color #a5a09c
-		padding 0.3rem
-		.back
-			float left
-			display inline-block
-			width 1rem
-			img
-				display block
 	.logo
 		text-align center
 		margin 2rem 0 1rem
@@ -70,7 +69,7 @@
 		padding 0 0.2rem
 		input
 			width 100%
-			height 0.6rem
+			height 1rem
 			border-bottom 3px solid #000
 			padding 0.1rem 0.1rem
 			font-size 0.5rem
@@ -82,7 +81,7 @@
 		span
 			display inline-block
 			padding 0.2rem 4rem
-			background-color #48382b
+			background-color #e71f19
 			border-radius 2rem
 			font-size 0.4rem
 			color #fff

@@ -1,5 +1,6 @@
 <template>
     <div class="car">
+        <back></back>
         <div class="head">
             <!--<div class="mui mui-input-row mui-checkbox mui-left">-->
                 <!--<label></label>-->
@@ -34,10 +35,21 @@
                 </div>
             </li>
         </ul>
+        <div class="settle">
+            <div @click="checkAll">
+                <input type="checkbox" v-model="isCheckAll"><span>全选</span>
+            </div>
+            <div>结算({{ checked_count }})</div>
+            <div>
+                <p>合计：<span>￥{{ price_all }}</span></p>
+                <span>已优惠：￥{{30}}</span>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    import Back from '../common/Back'
     export default {
         data: function () {
             return {
@@ -76,8 +88,13 @@
                     }
                 ],
                 isEdit: false,
-                isCheckAll: true
+                isCheckAll: true,
+                checked_count: 0,
+                price_all: 0
             }
+        },
+        components: {
+            Back
         },
         methods: {
             crease: function (index) {
@@ -103,14 +120,25 @@
                 this.carList.splice(index,1);
             }
         },
+        mounted: function () {
+            this.checked_count = this.carList.length;
+            for (var i=0;i<this.carList.length;i++){
+                this.price_all += this.carList[i].count * 1 * this.carList[i].price
+            }
+
+        },
         watch: {
             'carList': {
                 handler: function(val){
+                    var checked = 0
+                    var price = 0
                     var f = true;
                     var t = true;
                     for (var i=0;i<val.length;i++){
                         if (val[i].check){
                             f = false;
+                            checked++
+                            price += val[i].count * 1 * val[i].price
                         }else{
                             t = false;
                         }
@@ -121,6 +149,9 @@
                     if (f){
                         this.isCheckAll = false;
                     }
+                    this.checked_count = checked;
+                    this.price_all = price
+
                 },
                 deep: true
             }
@@ -130,9 +161,8 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
     .car
+        position relative
         background-color #fff
-        margin-top 1rem
-        padding 0 0.2rem
         .head
             overflow hidden
             height 1rem
@@ -214,8 +244,45 @@
                         right 0
                         top 0
                         height 2rem
+                        width 1rem
                         line-height 2rem
                         background-color #ff4852
                         color #fff
                         font-size 0.4rem
+        .settle
+            position fixed
+            background-color #f2f2f2
+            bottom 1.3333rem
+            left 0
+            overflow hidden
+            width 100%
+            div:nth-child(1)
+                float left
+                line-height 1rem
+                input
+                    width 0.4rem
+                    height 0.4rem
+                    vertical-align middle
+                    margin 0 0.1rem
+            div:nth-child(2)
+                float right
+                width 1.5rem
+                background-color red
+                height 1rem
+                line-height 1rem
+                text-align center
+                color #fff
+            div:nth-child(3)
+                margin-right 0.1rem
+                float right
+                font-size 0.24rem
+                p
+                    padding-top 0.2rem
+                    line-height 0.4rem
+                    span
+                        color red
+                        font-size 0.32rem
+                span
+                    line-height 0.3rem
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<div class="ClassifyPage">
+	<div id="ClassFiyPage" class="ClassifyPage">
 		<!--菜单-->
 		<div class="menuBox" v-show="bool">
 			<div class="sanjiao"></div>
@@ -72,7 +72,8 @@
 			}
 		},
 		mounted: function () {
-            console.log("1")
+           //window.scrollTop = 0;
+//			document.getElementById("ClassFiyPage").scrollTop = 1000;
         }
 	}
 </script>
