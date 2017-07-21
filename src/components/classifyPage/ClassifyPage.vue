@@ -72,6 +72,7 @@
 			}
 		},
 		mounted: function () {
+           //window.scrollTop = 0;
 //			document.getElementById("ClassFiyPage").scrollTop = 1000;
         }
 	}
