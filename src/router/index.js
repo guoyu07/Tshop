@@ -10,6 +10,9 @@ import ClassifyPage from '@/components/classifyPage/ClassifyPage'
 import Login from '@/components/minePage/Login'
 import Register from '@/components/minePage/Register'
 import PayAwait from '@/components/minePage/orderList/PayAwait'
+import OrderList from '@/components/minePage/orderList/OrderList'
+import EvaluateAwait from '@/components/minePage/orderList/EvaluateAwait'
+
 import flowerT from '@/components/classifyPage/sons/flowerT'
 import sixT from '@/components/classifyPage/sons/sixT'
 import puerT from '@/components/classifyPage/sons/puerT'
@@ -26,6 +29,11 @@ export default new Router({
     routes: [
         {
             path: '/',
+            name: 'HomePage',
+            component: HomePage
+        },
+        {
+            path: '/home',
             name: 'HomePage',
             component: HomePage
         },
@@ -80,6 +88,14 @@ export default new Router({
         {
             path: '/payAwait',
             component: PayAwait
+        },
+        {
+            path: '/orderList',
+            component: OrderList
+        },
+        {
+            path: '/evaluateAwait',
+            component: EvaluateAwait
         }
     ]
 })

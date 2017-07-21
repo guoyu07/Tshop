@@ -1,10 +1,6 @@
 <template>
 	<div class="login">
-		<div class="headers clearfix">
-			<router-link to="/login" class="back">
-				<img src="/static/minePage/login/back.png" alt="" />
-			</router-link>
-		</div>
+		<back></back>
 		<div class="logo">
 			<img src="/static/minePage/login/logo.png" alt="" />
 		</div>
@@ -28,6 +24,8 @@
 </template>
 
 <script type="text/javascript">
+	import Back from '../common/Back'
+
 	export default {
 		data:function(){
 			return{
@@ -46,6 +44,9 @@
 					}
 				]
 			}
+		},
+		components: {
+            Back
 		}
 	}
 </script>
@@ -58,18 +59,6 @@
 		left 0
 		width 100%
 		height 100%
-	.headers
-		height 1rem
-		line-height 1rem
-		background #e71f19
-		color #a5a09c
-		padding 0.3rem
-		.back
-			float left
-			display inline-block
-			width 1rem
-			img
-				display block
 	.logo
 		text-align center
 		margin 2rem 0 1rem
