@@ -28,13 +28,13 @@
                         'id': 2,
                         'name': '分类',
                         'url': '/classify',
-                        'icon': 'icon-fenlei'
+                        'icon': 'icon-liebiao'
                     },
                     {
                         'id': 3,
                         'name': '购物车',
                         'url': '/car',
-                        'icon': 'icon-gouwuchekong'
+                        'icon': 'icon-gouwuche'
                     },
                     {
                         'id': 4,

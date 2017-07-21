@@ -18,6 +18,9 @@ import Register from '@/components/minePage/Register'
 
 import DetailsPage from '@/components/classifyPage/details/DetailsPage'
 import Screen from '@/components/classifyPage/details/Screen'
+import BrandDisplay from '@/components/homePage/BrandDisplay'
+import LimitTime from '@/components/homePage/LimitTime'
+import Bargain from '@/components/homePage/Bargain'
 Vue.use(Router)
 
 export default new Router({
@@ -72,6 +75,21 @@ export default new Router({
         path: '/screen',
         name: 'screen',
         component: Screen
-    }
+    },
+    {
+    path:'/brand',
+    name:'brand',
+    component:BrandDisplay
+    },
+    {
+    path:'/limit',
+    name:'LimitTime',
+    component:LimitTime
+    },
+     {
+         path:'/bargain',
+         name:'Bargain',
+         component:Bargain
+     }
   ]
 })

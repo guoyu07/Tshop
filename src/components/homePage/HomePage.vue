@@ -38,7 +38,7 @@
 	     	<div class="new_product">
 	     		<div class="nav_top">
 	     			<span>新品上市</span>
-	     			<router-link to="/">更多></router-link>
+	     			<router-link to="/details">更多></router-link>
 	     		</div>
 	     		<new-swiper v-bind:banners="newProd"></new-swiper>
 	     	</div>
@@ -46,7 +46,7 @@
 	     	<div class="new_product">
 	     		<div class="nav_top">
 	     			<span>热销商品</span>
-	     			<router-link to="/">更多></router-link>
+	     			<router-link to="/details">更多></router-link>
 	     		</div>
 	     		<new-swiper v-bind:banners="hotProd"></new-swiper>
 	     	</div>
@@ -54,7 +54,7 @@
 	     	<div class="new_product">
 	     		<div class="nav_top">
 	     			<span>乌龙茶</span>
-	     			<router-link to="/">更多></router-link>
+	     			<router-link to="/details">更多></router-link>
 	     		</div>
 	     		<div class="oolong">
 	     			<ul >
@@ -77,7 +77,7 @@
 import HomeSwiper from "./HomeSwiper"
 import AddProduct from "./AddProduct"
 import NewSwiper from "./NewSwiper"
-//import AddProduct from "./AddProduct"
+//import BrandDisplay from "./BrandDisplay"
 
 export default {
 		//渲染数据
@@ -99,10 +99,10 @@ export default {
 				],
 				//中间方格的图标
 				brandImg:[
-					[{img:'../../../static/homePage/brand1.jpg',name:'show1'}],
-					[{img:'../../../static/homePage/brand2.png',name:'show2'},{img:'../../../static/homePage/brand3.png',name:'show3'}],
-					[{img:'../../../static/homePage/brand4.png',name:'show4'},{img:'../../../static/homePage/brand6.png',name:'show5'}],
-					[{img:'../../../static/homePage/brand5.png',name:'show6'},{img:'../../../static/homePage/brand7.png',name:'show7'}]
+					[{img:'../../../static/homePage/brand1.jpg',name:'品牌展示'}],
+					[{img:'../../../static/homePage/brand2.png',name:'风牌红茶'},{img:'../../../static/homePage/brand3.png',name:'六大茶山'}],
+					[{img:'../../../static/homePage/brand4.png',name:'中茶普洱茶'},{img:'../../../static/homePage/brand6.png',name:'大益普洱茶'}],
+					[{img:'../../../static/homePage/brand5.png',name:'瑜山日照绿茶'},{img:'../../../static/homePage/brand7.png',name:'茶具'}]
 				],
 				//新品上市
 				newProd:	[
@@ -150,21 +150,28 @@ export default {
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 1:
+						this.$router.push({name:'LimitTime'});
 						break;
 					case 2:
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 3:
+                        this.$router.push({name:'Bargain',query:{title:'拼团活动列表',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
 						break;
 					case 4:
-						this.$router.push({name:'ClassifyPage'});
+                        alert(1);
 						break;
 					case 5:
+                        this.$router.push({name:'Bargain',query:{title:'砍价活动',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
 						break;
+					case 6:
+                        this.$router.push({name:'Bargain',query:{title:'预售活动',cxt_nav:['全部活动']}});
+					    break;
 					case 7:
-						this.$router.push({name:'ClassifyPage'});
+                        this.$router.push({name:'Bargain',query:{title:'一元云购',cxt_nav:['即将揭晓','人气','最新','价值']}});
 						break;
 					case 8:
+                        this.$router.push({name:'Bargain',query:{title:'积分商城',cxt_nav:['上架','积分','更新','人气']}});
 						break;
 					case 9:
 						this.$router.push({name:'ClassifyPage'});
@@ -174,8 +181,29 @@ export default {
 //			中间方格布局，品牌展示各大茶系
 			brandFn(event){
 				console.log(event.target.name);
-				
-				
+				switch (event.target.name){
+					case '品牌展示':
+						this.$router.push({name:'brand',params:{name:event.target.name}});
+						break;
+					case '风牌红茶':
+						this.$router.push({name:'details',params:{name:event.target.name}});
+						break;
+					case '六大茶山':
+						this.$router.push({name:'details',params:{name:event.target.name}});
+						break;
+					case '中茶普洱茶':
+						this.$router.push({name:'details',params:{name:event.target.name}});
+						break;
+					case '大益普洱茶':
+						this.$router.push({name:'details',params:{name:event.target.name}});
+						break;
+					case '瑜山日照绿茶':
+						this.$router.push({name:'details',params:{name:event.target.name}});
+						break;	
+					case '茶具':
+						this.$router.push({name:'details',params:{name:event.target.name}});
+						break;
+				}
 			}
 		}
 	}
@@ -215,18 +243,20 @@ export default {
 			width 100%
 			border 1px solid #999999
 			border-radius 0.1333rem
+			position relative
 			input
-				width 80%
+				width 90%
 				font-size 0.3733rem
 				color #999999
 				padding 0.2833rem 
 				border 0
 				border-right 0.0266rem solid #999  
 			img
+				position absolute
 				width 0.76rem
 				height 0.72rem
-				padding 0.12rem 0
-				vertical-align middle 
+				right 1%
+				top 20%
 		/*十个小图标*/
 		.nav_logo
 			margin-top 0.44rem
@@ -282,27 +312,28 @@ export default {
 			width 100%
 			margin-bottom 0.28rem
 			background-color #fff
+			/*导航栏*/
 			.nav_top
 				width 100%
 				height 1.1466rem
 				line-height 1.1466rem
 				border 0.0133rem solid #eee
 				margin-bottom 0.3466rem
+				display flex
 				span:nth-child(1)
-					display inline-block
-					width 46%
+					flex 1
 					font-size 0.3866rem
 					padding-left 2%
-					/*font-weight bold*/
+					font-weight bold
 					border-left 0.0533rem solid #e71f19
 				a:nth-child(2)
-					display inline-block
+					flex 1
+					text-align right
 					padding-right 2%
-					width 46%
-					text-align right	
 					font-size 0.3866rem			
 					color #999999
 					text-decoration none
+			/*乌龙茶*/
 			.oolong
 				ul
 					li	
@@ -316,6 +347,7 @@ export default {
 			text-align center					
 			font-size 0.44rem
 			color #999	
+		/*精品推荐*/
 		.recommend
 			background-color #fff
 			width 96%
@@ -332,14 +364,7 @@ export default {
 				
 											
 .show{
-	width:0.0266rem;
+	width:0.0133rem;
 }		
 
-/*.clearfix:after
-	content " "
-	clear both
-	width 0
-	height 0
-	visibility hidden
-	display block		*/
 </style>
