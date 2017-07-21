@@ -2,9 +2,9 @@
 	<div class="login">
 		<div class="headers clearfix">
 			<router-link to="/mine" class="back">
-				<img src="../../../static/minePage/login/back.png" alt="" />
+				<img src="/static/minePage/login/back.png" alt="" />
 			</router-link>
-			<span class="register clearfix" @click="isShow=!isShow">注册新用户</span>
+			<router-link to="/register" class="register clearfix">注册新用户</router-link>
 		</div>
 		<div class="logo">
 			<img src="../../../static/minePage/login/logo.png" alt="" />
@@ -24,7 +24,6 @@
 				</span>
 			</div>
 		</div>
-		<register :isShow="isShow"></register>
 	</div>
 </template>
 
@@ -57,7 +56,7 @@
 	.headers
 		height 1rem
 		line-height 1rem
-		background #48382b
+		background #e7201a
 		color #a5a09c
 		padding 0.3rem
 		.back
@@ -73,6 +72,7 @@
 		right 0
 		padding-right 0.2rem
 		display inline-block
+		color #fff
 	.logo
 		text-align center
 		margin 2rem 0 1rem
@@ -97,7 +97,7 @@
 		span
 			display inline-block
 			padding 0.4rem 4rem
-			background-color #48382b
+			background-color #e7201a
 			border-radius 2rem
 			font-size 0.4rem
 			color #fff

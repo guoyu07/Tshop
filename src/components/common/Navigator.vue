@@ -63,7 +63,7 @@
                     /*width 10.0rem*/
                     display -webkit-box
                     bottom 0
-                    background-color #48382b
+                    background-color #f2f2f2
                     height 1.3333rem
                     border-top 1px solid #e6e6e6
                     text-align center
@@ -80,6 +80,6 @@
                     margin-top -0.4333rem
                     font-size 0.32rem
             #nav .active
-                    color: #6ab439
+                    color: #e7201a
 
 </style>
