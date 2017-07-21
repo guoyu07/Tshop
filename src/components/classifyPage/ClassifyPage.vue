@@ -72,7 +72,7 @@
 			}
 		},
 		mounted: function () {
-            console.log("1")
+           //window.scrollTop = 0;
         }
 	}
 </script>
