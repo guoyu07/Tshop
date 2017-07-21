@@ -6,7 +6,10 @@
 				<input type="text" placeholder="请输入商品名称 货号"/>
 				<p></p>
 			</div>
-			<div class="menu" @click="screenFn">筛选</div>
+			<!--<div class="menu" @click="screenFn">筛选</div>-->
+			<router-link :to="{path:'/screen',query:{teaTitle:teaTitle,teaLists:teaLists}}">
+				<div class="menu">筛选</div>
+			</router-link>
 		</div>
 		<div class="theIndex">
 			<div class="every" v-for="item in theIndex">{{ item }}</div>
@@ -30,6 +33,10 @@
 	export default {
 		data() {
 			return {
+                //接收到上一级传过来的数据
+				teaTitle:"",
+				teaLists:[],
+				//本页面的数据
 				theIndex:["最新","销量","更新"],
 				bool:true,
 				up_b:"../../../../static/img/ClassifyPage/up_b.png",
@@ -47,13 +54,28 @@
 			L_group:function(){
 				this.bool = !this.bool;
 			},
-			screenFn:function(){
-				this.$router.push("/screen");
-			},
+//			screenFn:function(){
+//				this.$router.push("/screen");
+//
+//			},
 			goTop:function(){
 				document.body.scrollTop = 0;
 			}
+		},
+		mounted:function(){
+/*********** 报错点 *****************************************************/
+            var pDatas = this.$route.query;
+            var listArr = pDatas.teaLists;
+//            console.log(listArr.length);
+
+            for(var i = 0;i<listArr.length;i++){
+                this.teaLists.push(listArr[i])
+            }
+            this.teaTitle = pDatas.teaTitle;
+
 		}
+/*********** 报错点 *****************************************************/
+
 	}
 </script>
 

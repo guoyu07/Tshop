@@ -1,5 +1,5 @@
 <template>
-	<div id="ClassFiyPage" class="ClassifyPage">
+	<div class="ClassifyPage">
 		<!--菜单-->
 		<div class="menuBox" v-show="bool">
 			<div class="sanjiao"></div>
@@ -8,7 +8,7 @@
 					<span class="bgH"></span>
 					<span class="fontsH">首页</span>
 				</div>
-				<div class="toClassify">
+				<div class="toClassify" >
 					<span class="bgCl"></span>
 					<span class="fontCl">分类</span>
 				</div>
@@ -36,10 +36,14 @@
 				</router-link>
 			</div>
 			<div class="ClaMain_right">
+				<!--<div class="firstShow">-->
+					<!--<div class="firstShow_T" @click="toFlower">进入花茶频道  ></div>-->
+					<!--<div class="list">花草茶</div>-->
+					<!--<div class="list">中药调饮</div>-->
+				<!--</div>-->
 				<router-view></router-view>
 			</div>
 		</div>
-		<div class="text"></div>
 	</div>
 </template>
 
@@ -58,6 +62,9 @@
 					{path:"/classify/goldT",theme:"金灶"},
 				],
 				bool:false,
+
+//                theClass:"花茶",
+//                toFlowerT:["花草茶","中药调饮"],
 			}
 		},
 		methods:{
@@ -65,15 +72,17 @@
 				this.bool = !this.bool;
 			},
 			backFn:function(){
-				this.$router.push("/home");
+				this.$router.push("/");
+			},
+            toFlower:function(){
+				this.$router.push("/details")
 			},
 			themeFn:function(index){
 //				console.log(this.classifys)
 			}
 		},
 		mounted: function () {
-           //window.scrollTop = 0;
-//			document.getElementById("ClassFiyPage").scrollTop = 1000;
+
         }
 	}
 </script>
@@ -81,7 +90,7 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 	.ClassifyPage
 		width 100%
-		position relative
+		position fixed
 		left 0
 		top 0
 		/*菜单*/
@@ -110,7 +119,7 @@
 					.bgH
 						position absolute
 						left 5%
-						top 0.1rem
+						top 0.1666rem
 						display inline-block
 						width 0.7rem
 						height 0.7rem
@@ -121,6 +130,8 @@
 						font-size 0.4rem
 						display inline-block
 						margin-left 0.85rem
+						margin-bottom:0.2rem
+						margin-top:0.1666rem
 				.toClassify
 					position relative
 					padding 0.1666rem 0.1333rem
@@ -135,7 +146,7 @@
 					.fontCl
 						position absolute
 						left 0
-						top 0.2333rem
+						top 0.3rem
 						font-size 0.4rem
 						display inline-block
 						margin-left 1rem
@@ -144,7 +155,6 @@
 					padding 0.1666rem 0.1333rem
 					border-bottom 1px solid lightgray
 					.bgCa
-						
 						display inline-block
 						width 0.7rem
 						height 0.7rem
@@ -154,7 +164,7 @@
 					.fontCa
 						position absolute
 						left 0
-						top 0.2333rem
+						top 0.3rem
 						font-size 0.4rem
 						display inline-block
 						margin-left 1rem
@@ -163,7 +173,6 @@
 					padding 0.1666rem 0.1333rem
 					border-bottom 1px solid lightgray
 					.bgM
-						
 						display inline-block
 						width 0.7rem
 						height 0.7rem
@@ -173,7 +182,7 @@
 					.fontM
 						position absolute
 						left 0
-						top 0.2333rem
+						top 0.3rem
 						font-size 0.4rem
 						display inline-block
 						margin-left 1rem
@@ -247,7 +256,29 @@
 					margin 3.5% auto
 					font-size 0.4rem
 					color #fff
-		.text
-			height: 0.3333rem
-			color #fff
+				.firstShow
+					position absolute
+					right 0
+					top 0
+					width 100%
+					height: 22.6666rem
+					/*border 1px solid aqua*/
+					background-color #f5f5f5
+					.firstShow_T
+						width 90%
+						height 0.9333rem
+						line-height 0.9333rem
+						text-align center
+						background-color #e71f19
+						border-radius 0.1333rem
+						margin 4% auto
+						font-size 0.4rem
+						color #fff
+					.list
+						/*border 1px solid red*/
+						color gray
+						width 90%
+						margin 0 auto
+						margin-bottom 0.3333rem
+						font-size 0.4rem
 </style>

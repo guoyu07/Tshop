@@ -1,10 +1,10 @@
 <template>
 	<div class="flowerT">
-		<router-link :to="path">
+		<router-link :to="{path:path,query:{teaTitle:theClass,teaLists:toFlowerT}}">
 			<div class="toFlowerT">{{titles}}</div>
 		</router-link>
 		<router-link :to="path">
-			<div class="list" v-for="item in toFlowerT">{{item.list}}</div>
+			<div class="list" v-for="item in toFlowerT">{{item}}</div>
 		</router-link>
 	</div>
 </template>
@@ -13,12 +13,12 @@
 	export default{
 		data(){
 			return{
-				titles:"中茶频道  >",
+				titles:"进入中茶频道  >",
 				path:"/details",
-				toFlowerT:[
-					{list:"中茶普洱茶"},
-					{list:"黑茶"}
-				]
+
+                //传递给下一级的数据
+                theClass:"中茶",
+                toFlowerT:["中茶普洱茶","黑茶"],
 			}
 		}
 	}

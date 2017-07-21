@@ -7,11 +7,11 @@
 		<div class="classify">
 			<p class="classify_L">分类</p>
 			<div class="classify_R">
-				<div class="comDiv" v-show="bool">
-					<span @click="cgBoolFn">收起</span>
+				<div class="comDiv" v-show="bool" @click="cgBoolFn">
+					<span>收起</span>
 					<img :src="path1" alt="" />
 				</div>
-				<div class="comDiv" v-show="!bool">
+				<div class="comDiv" v-show="!bool" @click="cgBoolFn">
 					<span @click="cgBoolFn">展开</span>
 					<img :src="path2" alt="" />
 				</div>
@@ -29,11 +29,11 @@
 		data(){
 			return {
 				cliTitle:"筛选",
-				checkTitle:"花茶",
+				checkTitle:"",
 				path1:"../../../../static/img/ClassifyPage/upArr.png",
 				path2:"../../../../static/img/ClassifyPage/downArr.png",
 				bool:true,
-				teaLists:["花草茶","中药调饮"],
+				teaLists:[],
 			}
 		},
 		methods:{
@@ -43,7 +43,17 @@
 			cgBoolFn:function(){
 				this.bool = !this.bool
 			}
-		}
+		},
+        mounted:function(){
+            var pDatas = this.$route.query;
+            var listArr = pDatas.teaLists
+            for(var i = 0;i<listArr.length;i++){
+                this.teaLists.push(listArr[i])
+            }
+            this.checkTitle = pDatas.teaTitle;
+
+
+        }
 	}
 </script>
 
@@ -106,11 +116,11 @@
 				border-bottom 0.0333rem solid lightgray
 			.teaList
 				margin 0 auto
-				width 88%
+				width 85%
 				height 1.2rem
 				line-height 1.2rem
 				font-size 0.35rem
 				color gray
-				margin-left 0.6rem
+				margin-left 0.9rem
 				border-bottom 0.0333rem solid lightgray
 </style>
