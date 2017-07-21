@@ -21,15 +21,18 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
     .headers
+        position relative
         height 1rem
         line-height 1rem
         background #e7201a
-        color #a5a09c
-        padding 0.3rem
+        color #fff
+        text-align center
+        font-size 0.40rem
         .back
-            float left
-            display inline-block
+            position absolute
             width 1rem
+            padding 0.3rem
+            left 0
             img
                 display block
 </style>

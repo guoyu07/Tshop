@@ -1,6 +1,6 @@
 <template>
     <div class="orderList">
-        <list-page :list="orderList"></list-page>
+        <list-page :list="orderList" :title="title"></list-page>
     </div>
 </template>
 
@@ -10,6 +10,7 @@
     export default {
         data: function () {
             return {
+                "title": "全部订单",
                 "orderList": [
                     {
                         "title": "大益普洱茶熟茶 琥珀方砖60g*4盒组合装云南勐海茶厂砖茶",
