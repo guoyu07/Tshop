@@ -41,7 +41,7 @@
 	     			<span>新品上市</span>
 	     			<router-link to="/details">更多></router-link>
 	     		</div>
-	     		<new-swiper v-bind:banners="newProd"></new-swiper>
+	     		<new-swiper></new-swiper>
 	     	</div>
 	     	<!--热销商品-->
 	     	<div class="new_product">
@@ -78,6 +78,7 @@
 import HomeSwiper from "./HomeSwiper"
 import AddProduct from "./AddProduct"
 import NewSwiper from "./NewSwiper"
+import axios from 'axios'
 //import BrandDisplay from "./BrandDisplay"
 
 export default {
@@ -105,11 +106,6 @@ export default {
 					[{img:'../../../static/homePage/brand4.png',name:'中茶普洱茶'},{img:'../../../static/homePage/brand6.png',name:'大益普洱茶'}],
 					[{img:'../../../static/homePage/brand5.png',name:'瑜山日照绿茶'},{img:'../../../static/homePage/brand7.png',name:'茶具'}]
 				],
-				//新品上市
-				newProd:	[
-		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}],
-		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}]
-		      ],
 		      //商品热销
 				hotProd:	[
 		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}],
@@ -132,9 +128,6 @@ export default {
 		      		{img:'../../../static/homePage/product1.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},
 		      		{img:'../../../static/homePage/product1.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}
 		      	],
-		      	
-		      	
-				
 			}
 		},
 		//注册组件
