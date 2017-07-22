@@ -10,8 +10,10 @@
      	<div class="nav_bar">
      		<!--输入框-->
      		<div class="search">
-     			<input type="text" placeholder="请输入你所搜索的商品"/>
-     			<img src="../../../static/homePage/icosousuo.png"/>
+     			<router-link to="/Search">
+     				<input type="text" placeholder="请输入你所搜索的商品"/>
+     				<img src="../../../static/homePage/icosousuo.png"/>
+     			</router-link>
      		</div>
      		<!--导航栏列表图标-->
      		<div class="nav_logo">
@@ -148,17 +150,22 @@ export default {
 			navFn(index){
 				switch (index){
 					case 0:
+						console.log(0)
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 1:
+						console.log(1)
 						break;
 					case 2:
+						console.log(2)
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 3:
+						console.log(3)
 						break;
 					case 4:
-						this.$router.push({name:'ClassifyPage'});
+						console.log(4)
+						this.$router.push({name:'BaiDu'});
 						break;
 					case 5:
 						break;
