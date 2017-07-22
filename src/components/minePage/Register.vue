@@ -5,11 +5,11 @@
 			<img src="/static/minePage/login/logo.png" alt="" />
 		</div>
 		<div class="paw">
-			<input type="text" placeholder="账号" />
-			<input type="password" placeholder="密码" />
-			<input type="password" placeholder="确认密码"/>
+			<input type="text" placeholder="账号" v-model="newUserName"/>
+			<input type="password" placeholder="密码" v-model="newPassword"/>
+			<input type="password" placeholder="确认密码" v-model="surePassword"/>
 		</div>
-		<div class="logins">
+		<div class="logins" @click="Fn">
 			<span>注册</span>
 		</div>
 		<p>其他注册方式</p>
@@ -42,7 +42,19 @@
 					{
 					    'src':require('../../../static/minePage/login/baidu.png')
 					}
-				]
+				],
+				newUserName:'',
+				newPassword:'',
+				surePassword:'',
+			}
+		},
+		mounted:function(){
+			console.log(localStorage.setItem('a','abc'));
+			console.log(localStorage.getItem('a'));
+		},
+		methods:{
+			Fn:function(){
+				localStorage.setItem('username','{"name":"this.newUserName","pwd":"this.newPassword","surePwd":"this.surePassword"}');
 			}
 		},
 		components: {
