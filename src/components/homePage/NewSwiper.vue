@@ -4,10 +4,10 @@
 	<!--轮播图-->
    	<swiper-slide v-for="slide in banners" >
    		<ul >
-   			<li v-for=" k in slide">
+   			<li v-for=" (k,index) in slide">
    				<div class="add_product" >
-					<div class="pro_pic"><router-link to="/"><img :src="k.img"/></router-link></div>
-					<div><span>{{k.title}}</span></div>
+					<div class="pro_pic"><router-link :to="{path:'/',params:{title:k.title}}"><img :src="k.img"/></router-link></div>
+					<div @click="sendFn(k.title)"><span>{{k.title}}</span></div>
 					<div>
 						<div><span>{{k.cost}}</span><span>{{k.cost2}}</span></div>
 						<router-link to="/"><img src="../../../static/homePage/index_flow.png"/></router-link>
@@ -37,21 +37,19 @@ import Vue from 'vue'
 	          paginationClickable :true,
 	          observeParents:true,
 	          loop: true,
-//	          img:'../../../static/homePage/product.jpg',
-//		      title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',
-//		      cost:'1268.00',
-//		      cost2:'321.60',
-//		      banner:[
-//		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}],
-//		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}]
-//		      ]
 	        }
 	      }
 	  },		
 		components: {
 		    swiper,
 		    swiperSlide
-		  }
+		 },
+		 methods:{
+		 	sendFn(title){
+		 		alert(title);
+		 		this.$router.push({name:'/',params:{title:title}});
+		 	}
+		 }
 	}
 </script>
 

@@ -1,6 +1,6 @@
 <template>
-    <div class="payAwait">
-        <list-page :list="carList" :title="title"></list-page>
+    <div class="evaluate">
+        <list-page :list="evaluateList" :title="title"></list-page>
     </div>
 </template>
 
@@ -10,8 +10,8 @@
     export default {
         data: function () {
             return {
-                "title": "待付款",
-                "carList": [
+                "title": "待评价",
+                "evaluateList": [
                     {
                         "title": "大益普洱茶熟茶 琥珀方砖60g*4盒组合装云南勐海茶厂砖茶",
                         "src": "static/images/carPage/car1.jpg",
@@ -20,7 +20,7 @@
                         "pre_price": 95.52,
                         "check": true,
                         "merchant": "商家1",
-                        "status": "等待买家付款"
+                        "status": "交易成功"
                     },
                     {
                         "title": "中茶普洱 云南普洱熟茶07年十周年中茶牌圆茶380g 茶叶中粮出品",
@@ -30,7 +30,7 @@
                         "pre_price": 573.60,
                         "check": true,
                         "merchant": "商家2",
-                        "status": "等待买家付款"
+                        "status": "交易成功"
                     },
                     {
                         "title": "中茶普洱 云南普洱熟茶07年十周年中茶牌圆茶380g 茶叶中粮出品",
@@ -40,7 +40,7 @@
                         "pre_price": 573.60,
                         "check": true,
                         "merchant": "商家3",
-                        "status": "等待买家付款"
+                        "status": "交易成功"
                     },
                     {
                         "title": "中茶普洱 云南普洱熟茶07年十周年中茶牌圆茶380g 茶叶中粮出品",
@@ -50,7 +50,7 @@
                         "pre_price": 573.60,
                         "check": true,
                         "merchant": "商家4",
-                        "status": "等待买家付款"
+                        "status": "交易成功"
                     }
                 ]
             }

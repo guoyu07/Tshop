@@ -1,32 +1,32 @@
 <template>
 	<div class="add_product" >
-		<div class="pro_pic"><router-link to="/"><img :src="allmes.img"/></router-link></div>
-		<div><span>{{allmes.title}}</span></div>
+		<div class="pro_pic"><router-link :to="{path:'/',params:{title:allmes.title}}"><img :src="allmes.img"/></router-link></div>
+		<div @click="serdFn(allmes.title)"><span>{{allmes.title}}</span></div>
 		<div>
 				<div><span>{{allmes.cost}}</span><span>{{allmes.cost2}}</span></div>
-				<router-link to="/"><img src="../../../static/homePage/index_flow.png"/></router-link>
+				<router-link to="/" ><img src="../../../static/homePage/index_flow.png" @click="showFn"/></router-link>
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-//		props:['img'],
 		props:['allmes'],
-//		props:['cost'],
-//		props:['costOld'],
 		data() {
 	      return {
-//	        img:'../../../static/homePage/product.jpg',
-//	        title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',
-//	        cost:'1268.00',
-//	        costOld:'321.60',
-//	        allmes:{img:'../../../static/homePage/product.jpg',cost:'1268.00', costOld:'321.60',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装'}
 	      }
 	  },		
 		components: {
 		    
-		  }
+		 },
+		 methods:{
+		 	serdFn(title){
+		 		alert(title);
+		 	},
+			 showFn(){
+
+             }
+		 }
 	}	
 </script>
 

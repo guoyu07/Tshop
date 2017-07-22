@@ -15,10 +15,10 @@
 				</li>
 			</ul>
 			<div class="order">
-				<span href="">
+				<router-link to="/orderList">
 					全部订单
 					<img src="/static/minePage/11.png" alt="" />
-				</span>
+				</router-link>
 			</div>
 			<ul class="nav">
 				<li v-for="i in arr"><router-link :to="i.path">{{i.title}}</router-link></li>
