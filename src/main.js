@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+<<<<<<< HEAD
 import axios from 'axios'
 import Vuex from 'vuex'
 
@@ -111,8 +112,14 @@ const store = new Vuex.Store({
     }
 })
 
+=======
+import BaiduMap from 'vue-baidu-map'
+>>>>>>> 8a7b2c3c0e3579dd33fad9282d2b4e61d6f510be
 Vue.config.productionTip = false
-
+Vue.use(BaiduMap, {
+  // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+  ak: 'mtYHYx1V1nWLvQiH03ExnzQHVW0VL6UK'
+})
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
