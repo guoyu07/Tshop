@@ -83,7 +83,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 //axios请求
-// var db = mongoose.createConnection('mongodb://root:NCqnxHkEVV7WuZoHAnUzg6p6nEzTIlyHkE6VI4AM@rkylkunlrcka.mongodb.sae.sina.com.cn:10243','Tshop')
+// var db = mongoose.createConnection('localhost','Tshop')
 // db.on('open',function () {
 //     console.log("连接成功")
 // })
@@ -97,19 +97,19 @@ devMiddleware.waitUntilValid(() => {
 //     })
 //
 // })
-var MongoClient = require('mongodb').MongoClient
-console.log("1")
-MongoClient.connect('mongodb://root:NCqnxHkEVV7WuZoHAnUzg6p6nEzTIlyHkE6VI4AM@rkylkunlrcka.mongodb.sae.sina.com.cn:10243','wigcnemjsphx.mongodb.sae.sina.com.cn:10243',function(err, db) {
-    console.log("2")
-    console.log(err);
-    console.log(db)
-});
-app.get('/newShop',function (req,res) {
-//     Model.find({},function (err,data) {
-        res.send({"a":"b"})
-//     })
-//
-})
+//var MongoClient = require('mongodb').MongoClient
+//console.log("1")
+//MongoClient.connect('mongodb://root:NCqnxHkEVV7WuZoHAnUzg6p6nEzTIlyHkE6VI4AM@rkylkunlrcka.mongodb.sae.sina.com.cn:10243','wigcnemjsphx.mongodb.sae.sina.com.cn:10243',function(err, db) {
+//  console.log("2")
+//  console.log(err);
+//  console.log(db)
+//});
+//app.get('/newShop',function (req,res) {
+////     Model.find({},function (err,data) {
+//      res.send({"a":"b"})
+////     })
+////
+//})
 var server = app.listen(port)
 
 module.exports = {
