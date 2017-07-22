@@ -38,6 +38,9 @@
                     </div>
                 </div>
             </li>
+            <h4>
+                <span>亲，已经没有订单了哦!</span>
+            </h4>
         </ul>
     </div>
 </template>
@@ -143,4 +146,11 @@
                         div:nth-child(1)
                             border-color #e31939
                             color #e31939
+            >h4
+                margin 0.5rem 0.2rem 0
+                text-align center
+                background url("/static/minePage/h4_bg.png") 50% repeat-x
+                span
+                    padding 0 0.5rem
+                    background-color #fff
 </style>
