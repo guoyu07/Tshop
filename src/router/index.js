@@ -33,77 +33,6 @@ import Bargain from '@/components/homePage/Bargain'
 Vue.use(Router)
 
 export default new Router({
-<<<<<<< HEAD
-    routes: [
-        {
-            path: '/',
-            name: 'HomePage',
-            component: HomePage,
-        },
-        {
-            path: '/service',
-            name: 'ServicePage',
-            component: ServicePage
-        },
-        {
-            path: '/car',
-            name: 'CarPage',
-            component: CarPage
-        },
-        {
-            path: '/classify',
-            name: 'ClassifyPage',
-            component: ClassifyPage,
-            children:[
-                {path: '/classify/flowerT', component: flowerT},
-                {path: '/classify/sixT', component: sixT},
-                {path: '/classify/puerT', component: puerT},
-                {path: '/classify/middleT', component: middleT},
-                {path: '/classify/yusanT', component: yusanT},
-                {path: '/classify/windT', component: windT},
-                {path: '/classify/goldT', component: goldT}
-            ]
-        },
-        {
-            path: '/mine',
-            name: 'MinePage',
-            component: MinePage
-        },
-        {
-            path: '/details',
-            name: 'details',
-            component: DetailsPage
-        },
-        {
-            path: '/screen',
-            name: 'screen',
-            component: Screen
-        },
-        {
-            path: '/login',
-            name: 'Login',
-            component: Login,
-        },
-        {
-            path: '/register',
-            component: Register
-        },
-        {
-            path: '/payAwait',
-            component: PayAwait
-        },
-        {
-        		path: '/BaiDu',
-        		component: BaiDu,
-        		name: 'BaiDu'
-        },
-        {
-        		path:'/Search',
-        		component:Search,
-        		name:'Search'
-        }
-    ]
-=======
   routes: [
     {
       path: '/',
@@ -191,7 +120,16 @@ export default new Router({
       {
           path: '/evaluateAwait',
           component: EvaluateAwait
+      },
+      {
+          path: '/BaiDu',
+          component: BaiDu,
+          name: 'BaiDu'
+      },
+      {
+          path:'/Search',
+          component:Search,
+          name:'Search'
       }
   ]
->>>>>>> eddda706a55121bcd5ebfe678ab2784833ab08cb
 })

@@ -147,29 +147,23 @@ export default {
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 1:
-<<<<<<< HEAD
 						console.log(1)
-=======
 						this.$router.push({name:'LimitTime'});
->>>>>>> eddda706a55121bcd5ebfe678ab2784833ab08cb
 						break;
 					case 2:
 						console.log(2)
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 3:
-<<<<<<< HEAD
 						console.log(3)
 						break;
 					case 4:
 						console.log(4)
 						this.$router.push({name:'BaiDu'});
-=======
                         this.$router.push({name:'Bargain',query:{title:'拼团活动列表',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
 						break;
 					case 4:
                         alert(1);
->>>>>>> eddda706a55121bcd5ebfe678ab2784833ab08cb
 						break;
 					case 5:
                         this.$router.push({name:'Bargain',query:{title:'砍价活动',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
