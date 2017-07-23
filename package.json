@@ -13,6 +13,7 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "element-ui": "^1.4.0",
     "vue": "^2.3.3",
     "vue-baidu-map": "^0.11.2",
     "vue-router": "^2.6.0",

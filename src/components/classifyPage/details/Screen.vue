@@ -37,9 +37,9 @@
 			}
 		},
 		methods:{
-			screenBack:function(){
-				this.$router.push("/details")
-			},
+            screenBack:function(){
+                this.$router.push({path: history.go(-1)})
+            },
 			cgBoolFn:function(){
 				this.bool = !this.bool
 			}
