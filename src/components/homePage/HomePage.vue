@@ -4,11 +4,11 @@
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
      		<span>茶叶电子专柜</span>
-     		<router-link to="/classify"><img src="../../../static/homePage/cart_icon.png"/></router-link>
+     		<router-link to="/car"><img src="../../../static/homePage/cart_icon.png"/></router-link>
      	</div>
      	<home-swiper v-bind:banner="swiperImg"></home-swiper>
-     	<div class="nav_bar">
-     		<!--输入框-->
+         <div class="nav_bar">
+             <!--输入框-->
      		<div class="search">
      			<input type="text" placeholder="请输入你所搜索的商品"/>
      			<img src="../../../static/homePage/icosousuo.png"/>
@@ -175,14 +175,13 @@ export default {
                         this.$router.push({name:'Bargain',query:{title:'积分商城',cxt_nav:['上架','积分','更新','人气']}});
 						break;
 					case 9:
-						this.$router.push({name:'ClassifyPage'});
+						this.$router.push({path:'/service'});
 						break;
 				}
 			},
 //			中间方格布局，品牌展示各大茶系
 			brandFn(event){
 				console.log(event.target.name);
-<<<<<<< HEAD
 				switch (event.target.name){
 					case '品牌展示':
 						this.$router.push({name:'brand',params:{name:event.target.name}});
@@ -206,15 +205,15 @@ export default {
 						this.$router.push({name:'details',params:{name:event.target.name}});
 						break;
 				}
-=======
 				
 				
 			},
 //			一键返回顶部
 			goTop:function(){
 				document.body.scrollTop = 0;
->>>>>>> 4444d36f3d8e31391f7ed0ca9cbf0c2f4ee0fb2d
-			}
+			},
+
+//
 		}
 	}
 
@@ -382,7 +381,7 @@ export default {
 					margin-right 2%
 				li:nth-child(2n)
 					margin-right 0
-				
+
 											
 .show{
 	width:0.0133rem;

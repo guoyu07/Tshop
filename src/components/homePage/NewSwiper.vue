@@ -6,11 +6,11 @@
    		<ul >
    			<li v-for=" (k,index) in slide">
    				<div class="add_product" >
-					<div class="pro_pic"><router-link :to="{path:'/',params:{title:k.title}}"><img :src="k.img"/></router-link></div>
+					<div class="pro_pic"><router-link :to="{path:'/details',params:{title:k.title}}"><img :src="k.img"/></router-link></div>
 					<div @click="sendFn(k.title)"><span>{{k.title}}</span></div>
 					<div>
 						<div><span>{{k.cost}}</span><span>{{k.cost2}}</span></div>
-						<router-link to="/"><img src="../../../static/homePage/index_flow.png"/></router-link>
+						<router-link to="/"><img src="../../../static/homePage/index_flow.png" @click="cartBtn(index)"/></router-link>
 					</div>
 				</div>
    			</li>
@@ -46,9 +46,11 @@ import Vue from 'vue'
 		 },
 		 methods:{
 		 	sendFn(title){
-		 		alert(title);
 		 		this.$router.push({name:'/',params:{title:title}});
-		 	}
+		 	},
+			 cartBtn(index){
+
+			 }
 		 }
 	}
 </script>

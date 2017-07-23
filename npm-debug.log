@@ -1,7 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'dev' ]
 2 info using npm@3.10.10
-3 info using node@v6.10.2
+3 info using node@v6.11.0
 4 verbose run-script [ 'predev', 'dev', 'postdev' ]
 5 info lifecycle tea_store@1.0.0~predev: tea_store@1.0.0
 6 silly lifecycle tea_store@1.0.0~predev: no script for predev, continuing
@@ -20,13 +20,13 @@
 14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
-14 verbose stack     at maybeClose (internal/child_process.js:886:16)
+14 verbose stack     at maybeClose (internal/child_process.js:891:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid tea_store@1.0.0
 16 verbose cwd /Users/lan/Documents/GitHub/Tshop
 17 error Darwin 14.5.0
 18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "dev"
-19 error node v6.10.2
+19 error node v6.11.0
 20 error npm  v3.10.10
 21 error code ELIFECYCLE
 22 error tea_store@1.0.0 dev: `node build/dev-server.js`

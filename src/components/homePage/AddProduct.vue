@@ -4,7 +4,7 @@
 		<div @click="serdFn(allmes.title)"><span>{{allmes.title}}</span></div>
 		<div>
 				<div><span>{{allmes.cost}}</span><span>{{allmes.cost2}}</span></div>
-				<router-link to="/" ><img src="../../../static/homePage/index_flow.png" @click="showFn"/></router-link>
+				<a @click="showFn"><img src="../../../static/homePage/index_flow.png" /></a>
 		</div>
 	</div>
 </template>
