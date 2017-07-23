@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//vue-baidu-map
+import BaiDu from '@/components/homePage/Baidu'
+import Search from '@/components/homePage/Search'
 //五个主页面
 import HomePage from '@/components/homePage/HomePage'
 import ServicePage from '@/components/servicePage/ServicePage'
@@ -9,6 +12,7 @@ import ClassifyPage from '@/components/classifyPage/ClassifyPage'
 //我的页面
 import Login from '@/components/minePage/Login'
 import Register from '@/components/minePage/Register'
+
 import PayAwait from '@/components/minePage/orderList/PayAwait'
 import OrderList from '@/components/minePage/orderList/OrderList'
 import EvaluateAwait from '@/components/minePage/orderList/EvaluateAwait'
@@ -87,6 +91,30 @@ export default new Router({
             path: '/evaluateAwait',
             component: EvaluateAwait
         },
-
+        {
+            path: '/BaiDu',
+            component: BaiDu,
+            name: 'BaiDu'
+        },
+        {
+            path:'/brand',
+            name:'brand',
+            component:BrandDisplay
+        },
+        {
+            path:'/limit',
+            name:'LimitTime',
+            component:LimitTime
+        },
+        {
+            path:'/bargain',
+            name:'Bargain',
+            component:Bargain
+        },
+        {
+            path:'/Search',
+            component:Search,
+            name:'Search'
+        }
     ]
 })

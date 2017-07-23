@@ -10,9 +10,9 @@
       </div>
         <!--内容部分-->
       <div class="cxt" v-for="(item,index) in bargin_nav">
-          <h4>——————— 亲，已经没有东西了哦！ ———————</h4>
+          <h4><span>亲，已经没有东西了哦</span></h4>
           <div class="Baeain-middle">
-              <div class="Baeain-middle-top"><span>登录</span> | <span>注册</span> | <span>回顶部</span></div>
+              <div class="Baeain-middle-top"><span @click="toLogin">登录</span> | <span @click="toRegister">注册</span> | <span @click="toTop">回顶部</span></div>
               <p>&copy;2005-2017 茶叶电子专柜版权所有, 并保留权利。</p>
           </div>
       </div>
@@ -80,6 +80,15 @@ export default{
         },
         comeMy(){
             this.$router.push({name:'MinePage'})
+        },
+        toLogin(){
+            this.$router.push({path:'/login'})
+        },
+        toRegister(){
+            this.$router.push({path:'/register'})
+        },
+        toTop(){
+            document.body.scrollTop = 0;
         }
     },
     mounted:function(){
@@ -144,12 +153,17 @@ export default{
 .cxt
   display none
   h4
+      margin 0 0.2rem
       height 1.3733rem
       line-height 1.3733rem
       text-align center
       font-size 0.36rem
       color #adadad
       background-color whitesmoke
+      background url("/static/minePage/h4_bg.png") 50% repeat-x
+      span
+          padding 0 0.4rem
+          background-color #fff
   .Baeain-middle
       height 100%
       background-color whitesmoke
