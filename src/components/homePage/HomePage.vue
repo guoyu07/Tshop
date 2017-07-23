@@ -10,8 +10,10 @@
          <div class="nav_bar">
              <!--输入框-->
      		<div class="search">
-     			<input type="text" placeholder="请输入你所搜索的商品"/>
-     			<img src="../../../static/homePage/icosousuo.png"/>
+     			<router-link to="/Search">
+     				<input type="text" placeholder="请输入你所搜索的商品"/>
+     				<img src="../../../static/homePage/icosousuo.png"/>
+     			</router-link>
      		</div>
      		<!--导航栏列表图标-->
      		<div class="nav_logo">
@@ -41,7 +43,7 @@
 	     			<span>新品上市</span>
 	     			<router-link to="/details">更多></router-link>
 	     		</div>
-	     		<new-swiper v-bind:banners="newProd"></new-swiper>
+	     		<new-swiper></new-swiper>
 	     	</div>
 	     	<!--热销商品-->
 	     	<div class="new_product">
@@ -78,6 +80,7 @@
 import HomeSwiper from "./HomeSwiper"
 import AddProduct from "./AddProduct"
 import NewSwiper from "./NewSwiper"
+import axios from 'axios'
 //import BrandDisplay from "./BrandDisplay"
 
 export default {
@@ -105,11 +108,6 @@ export default {
 					[{img:'../../../static/homePage/brand4.png',name:'中茶普洱茶'},{img:'../../../static/homePage/brand6.png',name:'大益普洱茶'}],
 					[{img:'../../../static/homePage/brand5.png',name:'瑜山日照绿茶'},{img:'../../../static/homePage/brand7.png',name:'茶具'}]
 				],
-				//新品上市
-				newProd:	[
-		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}],
-		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}]
-		      ],
 		      //商品热销
 				hotProd:	[
 		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}],
@@ -132,9 +130,6 @@ export default {
 		      		{img:'../../../static/homePage/product1.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},
 		      		{img:'../../../static/homePage/product1.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}
 		      	],
-		      	
-		      	
-				
 			}
 		},
 		//注册组件
@@ -148,19 +143,23 @@ export default {
 			navFn(index){
 				switch (index){
 					case 0:
+						console.log(0)
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 1:
+						console.log(1)
 						this.$router.push({name:'LimitTime'});
 						break;
 					case 2:
+						console.log(2)
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 3:
-                        this.$router.push({name:'Bargain',query:{title:'拼团活动列表',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
+						console.log(3)
 						break;
 					case 4:
-                        alert(1);
+						console.log(4)
+						this.$router.push({name:'BaiDu'});
 						break;
 					case 5:
                         this.$router.push({name:'Bargain',query:{title:'砍价活动',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
@@ -213,7 +212,6 @@ export default {
 				document.body.scrollTop = 0;
 			},
 
-//
 		}
 	}
 
@@ -232,6 +230,7 @@ export default {
 			background-position center center
 			background-size 100%
 			background-color rgba(0,0,0,0.4)
+			z-index 10
 	/*导航栏*/
 	background-color #fff
 	.header

@@ -252,7 +252,7 @@
         .settle
             position fixed
             background-color #f2f2f2
-            bottom 1.3333rem
+            bottom 1.43rem
             left 0
             overflow hidden
             width 100%

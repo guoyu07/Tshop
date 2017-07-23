@@ -1,16 +1,19 @@
 <template>
-<div class="myswiper">
+<div class="myswiper" @click="show">
 	<swiper :options="swiperOption">
 	<!--轮播图-->
-   	<swiper-slide v-for="slide in banners" >
+   	<swiper-slide v-for="slide in banners">
    		<ul >
    			<li v-for=" (k,index) in slide">
    				<div class="add_product" >
-					<div class="pro_pic"><router-link :to="{path:'/details',params:{title:k.title}}"><img :src="k.img"/></router-link></div>
+					<div class="pro_pic">
+						<router-link :to="{path:'/',params:{title:k.title}}">
+							<img :src="k.src"/>
+						</router-link></div>
 					<div @click="sendFn(k.title)"><span>{{k.title}}</span></div>
 					<div>
-						<div><span>{{k.cost}}</span><span>{{k.cost2}}</span></div>
-						<router-link to="/"><img src="../../../static/homePage/index_flow.png" @click="cartBtn(index)"/></router-link>
+						<div><span>{{k.price}}</span><span>{{k.pre_price}}</span></div>
+						<router-link to="/"><img src="/static/homePage/index_flow.png"/></router-link>
 					</div>
 				</div>
    			</li>
@@ -23,35 +26,46 @@
 </template>
 
 <script>
-import Vue from 'vue'
+	import Vue from 'vue'
+	import axios from 'axios'
 	import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 	Vue.use(VueAwesomeSwiper)
+
 	import { swiper, swiperSlide } from 'vue-awesome-swiper'
 	export default {
-		props:['banners'],
-		data() {
-	      return {
-	        swiperOption: {
-	          setWrapperSize :true,
-	          pagination : '.swiper-pagination',
-	          paginationClickable :true,
-	          observeParents:true,
-	          loop: true,
-	        }
-	      }
-	  },		
+		data: function () {
+            return {
+                banners: [],
+                swiperOption: {
+                    setWrapperSize :true,
+                    pagination : '.swiper-pagination',
+                    paginationClickable :true,
+                    observeParents:true,
+                    loop: true,
+                }
+            }
+        },
 		components: {
 		    swiper,
 		    swiperSlide
 		 },
-		 methods:{
-		 	sendFn(title){
-		 		this.$router.push({name:'/',params:{title:title}});
-		 	},
-			 cartBtn(index){
-
-			 }
-		 }
+		methods:{
+			sendFn(title){
+				alert(title);
+				this.$router.push({name:'/',params:{title:title}});
+			},
+			show: function () {
+				console.log(this.banners)
+            }
+		},
+        mounted: function () {
+            var _this = this
+            axios.get('/newShop').then(function (res) {
+                _this.banners.push(res.data.slice(0,3))
+                _this.banners.push(res.data.slice(3,6))
+            })
+        }
 	}
 </script>
 

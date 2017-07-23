@@ -39,6 +39,7 @@
 				isShow: false
 			}
 		},
+		
 		components:{
 			Register
 		}
