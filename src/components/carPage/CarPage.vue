@@ -28,10 +28,10 @@
                 <div class="edit" v-show="isEdit">
                     <div>
                         <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" @click="decrease(index)">-</button>
-                        <input type="text" v-model="item.count">
+                        <input type="number" v-model="item.count">
                         <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" @click="crease(index)">+</button>
                     </div>
-                    <input type="button" value="删除" @click="removeItem(index)">
+                    <input type="button" value="删除" @click="isRemove(index)">
                 </div>
             </li>
         </ul>
@@ -45,11 +45,14 @@
                 <span>已优惠：￥{{30}}</span>
             </div>
         </div>
+        <navigator></navigator>
     </div>
 </template>
 
 <script>
+    import Navigator from '../common/Navigator'
     import Back from '../common/Back'
+
     export default {
         data: function () {
             return {
@@ -94,14 +97,21 @@
             }
         },
         components: {
+            Navigator,
             Back
         },
         methods: {
             crease: function (index) {
                 this.carList[index].count += 1;
+                if (this.carList[index].count>=99){
+                    this.carList[index].count = 99;
+                }
             },
             decrease: function (index) {
                 this.carList[index].count -= 1;
+                if (this.carList[index].count<=1){
+                    this.carList[index].count = 1;
+                }
             },
             checkAll: function () {
                 if (this.isCheckAll){
@@ -118,6 +128,21 @@
             },
             removeItem: function (index) {
                 this.carList.splice(index,1);
+            },
+            isRemove(index) {
+                this.$confirm('是否删除此购物车?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.carList.splice(index,1);
+                }).catch(() => {
+
+                });
             }
         },
         mounted: function () {

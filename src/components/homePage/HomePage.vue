@@ -73,15 +73,17 @@
 	     		</ul>
 	     	</div>
      	</div>
+		<navigator></navigator>
     </div>
 </template>
 
 <script>
-import HomeSwiper from "./HomeSwiper"
-import AddProduct from "./AddProduct"
-import NewSwiper from "./NewSwiper"
-import axios from 'axios'
-//import BrandDisplay from "./BrandDisplay"
+    import Navigator from '../common/Navigator'
+	import HomeSwiper from "./HomeSwiper"
+	import AddProduct from "./AddProduct"
+	import NewSwiper from "./NewSwiper"
+	import axios from 'axios'
+	//import BrandDisplay from "./BrandDisplay"
 
 export default {
 		//渲染数据
@@ -134,6 +136,7 @@ export default {
 		},
 		//注册组件
 		components:{
+            Navigator,
 			HomeSwiper,
 			AddProduct,
 			NewSwiper,

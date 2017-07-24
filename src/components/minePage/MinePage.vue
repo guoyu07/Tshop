@@ -32,11 +32,14 @@
 				</li>
 			</ul>
 		</div>
+		<navigator></navigator>
 	</div>
 </template>
 
 <script>
+    import Navigator from '../common/Navigator'
     import Login from './Login'
+
     export default {
         data:function(){
             return {
@@ -60,6 +63,7 @@
             },
         },
         components:{
+            Navigator,
             Login
         }
     }

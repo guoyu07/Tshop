@@ -57,29 +57,28 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
     @import "/static/css/font/iconfont.css"
-            #nav
-                    position fixed
-                    width 100%
-                    /*width 10.0rem*/
-                    display -webkit-box
-                    bottom 0
-                    background-color #f2f2f2
-                    height 1.3333rem
-                    border-top 1px solid #e6e6e6
-                    text-align center
-                    font-size 0.32rem
-            a
-                    -webkit-box-flex 1
-                    display block
-                    text-decoration none
-                    color #c3ad88
-                    line-height 0.9rem
-            i
-                    font-size  0.8rem
-            p
-                    margin-top -0.4333rem
-                    font-size 0.32rem
-            #nav .active
-                    color: #e7201a
-
+    #nav
+        position fixed
+        width 100%
+        /*width 10.0rem*/
+        display -webkit-box
+        bottom 0
+        background-color #f2f2f2
+        height 1.3333rem
+        border-top 1px solid #e6e6e6
+        text-align center
+        font-size 0.32rem
+    a
+        -webkit-box-flex 1
+        display block
+        text-decoration none
+        color #c3ad88
+        line-height 0.9rem
+    i
+        font-size  0.8rem
+    p
+        margin-top -0.4333rem
+        font-size 0.32rem
+    #nav .router-link-exact-active
+        color: #e7201a
 </style>

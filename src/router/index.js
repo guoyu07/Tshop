@@ -16,6 +16,8 @@ import Register from '@/components/minePage/Register'
 import PayAwait from '@/components/minePage/orderList/PayAwait'
 import OrderList from '@/components/minePage/orderList/OrderList'
 import EvaluateAwait from '@/components/minePage/orderList/EvaluateAwait'
+import SendAwait from '@/components/minePage/orderList/SendAwait'
+import TakeAwait from '@/components/minePage/orderList/SendAwait'
 
 //ClassifyPage下面的页面***********************************************************************
 import DetailsPage from '@/components/classifyPage/details/DetailsPage'
@@ -77,15 +79,28 @@ export default new Router({
         },
         {
             path: '/register',
+            name: 'register',
             component: Register
         },
         {
             path: '/payAwait',
+            name: 'payAwait',
             component: PayAwait
         },
         {
             path: '/orderList',
+            name: 'orderList',
             component: OrderList
+        },
+        {
+            path: '/sendAwait',
+            name: 'sendAwait',
+            component: SendAwait
+        },
+        {
+            path: '/TakeAwait',
+            name: 'takeAwait',
+            component: TakeAwait
         },
         {
             path: '/evaluateAwait',
