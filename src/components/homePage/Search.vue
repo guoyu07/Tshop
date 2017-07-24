@@ -18,14 +18,14 @@
 				<span>宝贝</span><span>店铺</span>	
 			</div>
 			<div class="search">
-		     	<router-link to="/Search">
-		     		<input type="text" placeholder="请输入你所搜索的商品"/>
-		     		<img src="../../../static/homePage/icosousuo.png"/>
-		     	</router-link>
-		     </div>
+     			<router-link to="/Search">
+     				<input type="text" placeholder="请输入你所搜索的商品"/>
+     				<img src="../../../static/homePage/icosousuo.png"/>
+     			</router-link>
+     		</div>
 		     <div class="recordBox">
 		     	<span>搜索记录</span>
-		     	<span class="del">删除</span>
+		     	<span class="del"><img src="../../../static/homePage/close.png" alt="" />删除</span>
 		     	<div class="record">
 		     		<span v-for="x in recordArr">{{x.title}}</span>
 		     	</div>
@@ -52,7 +52,6 @@
 					{'title':'白茶'},
 					{'title':'茶具'},
 					{'title':'茶服'}],
-				
 			}
 		}
 	}
@@ -98,26 +97,28 @@
 		.box
 			span
 				font-size 0.4rem
-				color #fff
-				background-color #e31939
+				/*color #fff*/
+				/*background-color #e31939*/
 				padding 0.2rem
 				display inline-block
-			
+				
 		.search
 			width 100%
 			border 5px solid #e31939
-			margin-bottom 0.3rem
+			position relative
+			margin-bottom 0.5rem
 			input
-				width 80%
+				width 90%
 				font-size 0.3733rem
 				color #999999
 				padding 0.2833rem 
-				border 0  
+				/*border 0*/
 			img
+				position absolute
 				width 0.76rem
 				height 0.72rem
-				padding 0.12rem 0
-				vertical-align middle
+				right 1%
+				top 20%
 		.recordBox
 			font-size 0.5rem
 			padding 0.2rem
@@ -127,6 +128,9 @@
 				border 1px solid #000
 				float right
 				margin-right 0.1rem
+			img
+				width 0.3rem
+				padding-bottom 0.05rem
 			.record
 				span
 					margin 0 0.1rem

@@ -47,9 +47,9 @@
             }
         },
 		components: {
-			swiper,
-			swiperSlide
-		},
+		    swiper,
+		    swiperSlide
+		 },
 		methods:{
 			sendFn(title){
 				alert(title);

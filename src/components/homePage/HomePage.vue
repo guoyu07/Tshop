@@ -4,11 +4,11 @@
      	<div class="header">
      		<router-link to="/classify"><img src="../../../static/homePage/classify_icon.png"/></router-link>
      		<span>茶叶电子专柜</span>
-     		<router-link to="/classify"><img src="../../../static/homePage/cart_icon.png"/></router-link>
+     		<router-link to="/car"><img src="../../../static/homePage/cart_icon.png"/></router-link>
      	</div>
      	<home-swiper v-bind:banner="swiperImg"></home-swiper>
-     	<div class="nav_bar">
-     		<!--输入框-->
+         <div class="nav_bar">
+             <!--输入框-->
      		<div class="search">
      			<router-link to="/Search">
      				<input type="text" placeholder="请输入你所搜索的商品"/>
@@ -160,10 +160,6 @@ export default {
 					case 4:
 						console.log(4)
 						this.$router.push({name:'BaiDu'});
-                        this.$router.push({name:'Bargain',query:{title:'拼团活动列表',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
-						break;
-					case 4:
-                        alert(1);
 						break;
 					case 5:
                         this.$router.push({name:'Bargain',query:{title:'砍价活动',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
@@ -178,7 +174,7 @@ export default {
                         this.$router.push({name:'Bargain',query:{title:'积分商城',cxt_nav:['上架','积分','更新','人气']}});
 						break;
 					case 9:
-						this.$router.push({name:'ClassifyPage'});
+						this.$router.push({path:'/service'});
 						break;
 				}
 			},
@@ -217,22 +213,23 @@ export default {
 			}
 		}
 	}
-
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .homepage
+	//一键返回顶部
 	.goTop
-			width 1.5rem
-			height 1.5rem
-			border-radius 50%
-			position fixed
-			right 0.2rem
-			bottom 2rem
-			background url('../../../static/img/ClassifyPage/goTop.png') no-repeat
-			background-position center center
-			background-size 100%
-			background-color rgba(0,0,0,0.4)
+		z-index 100
+		width 1.5rem
+		height 1.5rem
+		border-radius 50%
+		position fixed
+		right 0.2rem
+		bottom 2rem
+		background url('../../../static/img/ClassifyPage/goTop.png') no-repeat
+		background-position center center
+		background-size 100%
+		background-color rgba(0,0,0,0.4)
 	/*导航栏*/
 	background-color #fff
 	.header
@@ -382,7 +379,7 @@ export default {
 					margin-right 2%
 				li:nth-child(2n)
 					margin-right 0
-				
+
 											
 .show{
 	width:0.0133rem;
