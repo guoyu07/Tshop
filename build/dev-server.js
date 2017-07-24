@@ -82,8 +82,25 @@ devMiddleware.waitUntilValid(() => {
   }
   _resolve()
 })
+var mysql      = require('mysql');
+
+// 连接共享型MySQL
+var connection = mysql.createConnection({
+    host     : "w.rdc.sae.sina.com.cn",
+    port     : 3306,
+    user     : "624334519@qq.com",
+    password : "qq624334519",
+    database : "app_teashop"
+});
+connection.query('show status', function(err, rows) {
+    if (err) {
+        // 处理错误
+    }
+
+    // 处理query的结果
+});
 //axios请求
-// var db = mongoose.createConnection('mongodb://root:NCqnxHkEVV7WuZoHAnUzg6p6nEzTIlyHkE6VI4AM@rkylkunlrcka.mongodb.sae.sina.com.cn:10243','Tshop')
+// var db = mongoose.createConnection('localhost','Tshop')
 // db.on('open',function () {
 //     console.log("连接成功")
 // })
@@ -91,25 +108,27 @@ devMiddleware.waitUntilValid(() => {
 //
 // },{collection: "shop"});
 // var Model = db.model("shop",shopSchema);
-// app.get('/newShop',function (req,res) {
-//     Model.find({},function (err,data) {
-//         res.send(data)
-//     })
-//
-// })
-var MongoClient = require('mongodb').MongoClient
-console.log("1")
-MongoClient.connect('mongodb://root:NCqnxHkEVV7WuZoHAnUzg6p6nEzTIlyHkE6VI4AM@rkylkunlrcka.mongodb.sae.sina.com.cn:10243','wigcnemjsphx.mongodb.sae.sina.com.cn:10243',function(err, db) {
-    console.log("2")
-    console.log(err);
-    console.log(db)
-});
 app.get('/newShop',function (req,res) {
-//     Model.find({},function (err,data) {
-        res.send({"a":"b"})
-//     })
-//
+    connection.query('show status', function(err, rows) {
+        if (err) {
+            // 处理错误
+        }
+        console.log(rows)
+    });
+
 })
+// var MongoClient = require('mongodb').MongoClient;
+// MongoClient.connect('mongodb://root:NCqnxHkEVV7WuZoHAnUzg6p6nEzTIlyHkE6VI4AM@rkylkunlrcka.mongodb.sae.sina.com.cn:10243,wigcnemjsphx.mongodb.sae.sina.com.cn:10243',function(err, db) {
+//     console.log("2");
+// console.log(err);
+// console.log(db)
+// });
+// app.get('/newShop',function (req,res) {
+// //     Model.find({},function (err,data) {
+//     res.send({"a":"b"})
+// //     })
+// //
+// })
 var server = app.listen(port)
 
 module.exports = {
