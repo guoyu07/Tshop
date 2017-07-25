@@ -53,7 +53,7 @@
 		height 1.3333rem
 		position fixed
 		left 0
-		bottom 1.3333rem
+		bottom 0rem
 		z-index 200
 		display flex
 		.footer_1

@@ -4,7 +4,7 @@
 		<li class="eachGood" v-for="(v,k) in comeInData">
 			<div class="part_1">
 				<div class="HNB"></div>
-				<div class="goods_images">
+				<div class="goods_images" @click="toTheGoods">
 					<img :src="v.picSrc">
 				</div>
 			</div>
@@ -40,13 +40,15 @@
                 ],
             }
         },
-//		props:["teaType"],
         methods:{
             dec:function(ind){
                 this.comeInData[ind].count < 1 ? this.comeInData[ind].count = 0 : this.comeInData[ind].count--;
             },
             add:function(ind){
                 this.comeInData[ind].count++;
+            },
+            toTheGoods:function () {
+				this.$router.push("/theGoods")
             }
         },
         mounted:function(){
