@@ -14,18 +14,9 @@
 						<span>{{k.title}}</span>
 					</div>
 					<div>
-<<<<<<< HEAD
 						<div><span>{{k.price}}</span><span>{{k.pre_price}}</span></div>
 						<a @click="showFn(k)"><img src="/static/homePage/index_flow.png"/></a>
-=======
-						<div>
-							<span>{{k.price}}</span>
-							<span>{{k.pre_price}}</span>
-						</div>
-						<router-link to="/">
-							<img src="/static/homePage/index_flow.png"/>
-						</router-link>
->>>>>>> 93641c629623ee09f58da396df2a8e9dbce20dbb
+
 					</div>
 				</div>
    			</li>
@@ -68,7 +59,6 @@
 			},
 			show: function () {
 				console.log(this.banners)
-<<<<<<< HEAD
             },
             showFn(k){
 			    alert('成功添加进购物车');
@@ -82,10 +72,6 @@
                 _this.banners.push(res.data.slice(3,6))
             })
         }
-=======
-            }
-		}
->>>>>>> 93641c629623ee09f58da396df2a8e9dbce20dbb
 	}
 </script>
 
