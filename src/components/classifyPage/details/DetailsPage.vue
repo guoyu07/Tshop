@@ -69,7 +69,6 @@
 			GoodsL,
             GoodsT
 		},
-//		props:["teaType"],
 		methods:{
             detailBack:function(){
                 this.$router.push({path: history.go(-1)})

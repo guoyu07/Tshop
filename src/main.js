@@ -8,6 +8,9 @@ import 'element-ui/lib/theme-default/index.css'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 import Vuex from 'vuex'
+import Mint from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(Mint)
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
@@ -103,6 +106,9 @@ const store = new Vuex.Store({
         newProd: [
 
         ],
+        myCount:0,
+        popLock:false,
+        argPopLock:false
     },
     getters:{
 
@@ -111,6 +117,15 @@ const store = new Vuex.Store({
         show:function(state){
             alert(state.a)
         },
+        increase ( state) {
+            state.myCount++;
+        },
+        vipPopup (state){
+            state.popLock = !state.popLock
+        },
+        argPopup (state){
+            state.argPopLock = !state.argPopLock
+        }
     }
 })
 

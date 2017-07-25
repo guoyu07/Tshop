@@ -1,6 +1,6 @@
 <template>
       <div class="service_box">
-          <div class="service_top"><p><i class="iconfont icon-xiaoyuhao"></i></p><p>系统提示</p></div>
+          <div class="service_top"><p @click = "serverBack"><i class="iconfont icon-xiaoyuhao"></i></p><p>系统提示</p></div>
           <div class="service_middle">
             <p>您还未登录提到，请先登录！</p>
             <div class="service_middle_button"><span>登陆</span><span>返回上一页</span></div>
@@ -9,7 +9,13 @@
 </template>
 
 <script>
-
+    export default{
+        methods:{
+            serverBack:function(){
+                this.$router.push({path: history.go(-1)})
+            }
+        }
+    }
 
 </script>
 

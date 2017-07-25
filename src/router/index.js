@@ -17,11 +17,12 @@ import PayAwait from '@/components/minePage/orderList/PayAwait'
 import OrderList from '@/components/minePage/orderList/OrderList'
 import EvaluateAwait from '@/components/minePage/orderList/EvaluateAwait'
 
-//ClassifyPage下面的页面***********************************************************************
 import DetailsPage from '@/components/classifyPage/details/DetailsPage'
 import Screen from '@/components/classifyPage/details/Screen'
-//ClassifyPage下面的页面***********************************************************************
 
+import theGoods from '@/components/classifyPage/eachGoods/theGoods'
+import theDetails from '@/components/classifyPage/eachGoods/theDetails'
+import thePraise from '@/components/classifyPage/eachGoods/thePraise'
 
 import BrandDisplay from '@/components/homePage/BrandDisplay'
 import LimitTime from '@/components/homePage/LimitTime'
@@ -70,6 +71,23 @@ export default new Router({
             name: 'screen',
             component: Screen
         },
+        //每个商品的详情页
+        {
+            path: '/theGoods',
+            name: 'theGoods',
+            component: theGoods,
+        },
+        {
+            path: '/theDetails',
+            name: 'theDetails',
+            component: theDetails,
+        },
+        {
+            path: '/thePraise',
+            name: 'thePraise',
+            component: thePraise,
+        },
+        //每个商品的详情页
         {
             path: '/login',
             name: 'Login',
