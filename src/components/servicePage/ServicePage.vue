@@ -1,17 +1,37 @@
 <template>
       <div class="service_box">
           <div class="service_top"><p @click = "serverBack"><i class="iconfont icon-xiaoyuhao"></i></p><p>系统提示</p></div>
+          <back :title="title"></back>
           <div class="service_middle">
             <p>您还未登录提到，请先登录！</p>
-            <div class="service_middle_button"><span>登陆</span><span>返回上一页</span></div>
+            <div class="service_middle_button">
+                <span @click="login">登陆</span><span @click="backFn">返回上一页</span>
+            </div>
           </div>
+          <navigator></navigator>
       </div>
 </template>
 
 <script>
-    export default{
-        methods:{
-            serverBack:function(){
+
+    import Navigator from '../common/Navigator'
+    import Back from '../common/Back'
+
+    export default {
+        data: function () {
+            return {
+                'title': '系统提示'
+            }
+        },
+        components: {
+            Navigator,
+            Back
+        },
+        methods: {
+            login: function () {
+                this.$router.push('/login')
+            },
+            backFn: function () {
                 this.$router.push({path: history.go(-1)})
             }
         }
@@ -24,30 +44,6 @@
     .service_box
         background-color #ffffff
         position relative
-        /*background-color red*/
-        .service_top
-            width 100%
-            height 1.3333rem
-            /*border 1px solid red*/
-            background-color white
-            text-align center
-            p
-                line-height 1.3333rem
-                /*color red*/
-                display inline-block
-            p:nth-child(1)
-                float left
-                position absolute
-                left 0.6rem
-                /*color red*/
-            p:nth-child(2)
-                font-size 0.4rem
-            i
-                font-size 0.44rem
-        .service_top:after
-            display block
-            clear both
-            content ""
         .service_middle
             background-color whitesmoke
             height: 15.88rem;

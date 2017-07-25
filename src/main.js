@@ -125,6 +125,10 @@ const store = new Vuex.Store({
         },
         argPopup (state){
             state.argPopLock = !state.argPopLock
+        },
+        insertCar (state,k) {
+            state.carList.push(k)
+            console.log(state.carList)
         }
     }
 })

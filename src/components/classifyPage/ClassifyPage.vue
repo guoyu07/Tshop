@@ -42,10 +42,13 @@
 				</div>
 			</div>
 		</div>
+		<navigator></navigator>
 	</div>
 </template>
 
 <script>
+    import Navigator from '../common/Navigator'
+
     export default {
         data() {
             return {
@@ -57,6 +60,9 @@
                 bool:false,
             }
         },
+		components: {
+            Navigator
+		},
         methods:{
             change:function(ind){
                 this.i = ind;

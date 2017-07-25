@@ -7,13 +7,16 @@
    			<li v-for=" (k,index) in slide">
    				<div class="add_product" >
 					<div class="pro_pic">
-						<router-link :to="{path:'/',params:{title:k.title}}">
+						<router-link :to="{path:'/theGoods',params:{title:k.title}}">
 							<img :src="k.src"/>
 						</router-link></div>
-					<div @click="sendFn(k.title)"><span>{{k.title}}</span></div>
+					<div @click="sendFn(k.title)">
+						<span>{{k.title}}</span>
+					</div>
 					<div>
 						<div><span>{{k.price}}</span><span>{{k.pre_price}}</span></div>
-						<router-link to="/"><img src="/static/homePage/index_flow.png"/></router-link>
+						<a @click="showFn(k)"><img src="/static/homePage/index_flow.png"/></a>
+
 					</div>
 				</div>
    			</li>
@@ -36,7 +39,6 @@
 	export default {
 		data: function () {
             return {
-                banners: [],
                 swiperOption: {
                     setWrapperSize :true,
                     pagination : '.swiper-pagination',
@@ -46,18 +48,22 @@
                 }
             }
         },
+		props: ['banners'],
 		components: {
 		    swiper,
 		    swiperSlide
 		 },
 		methods:{
 			sendFn(title){
-				alert(title);
-				this.$router.push({name:'/',params:{title:title}});
+				this.$router.push({name:'/theGoods',params:{title:title}});
 			},
 			show: function () {
 				console.log(this.banners)
-            }
+            },
+            showFn(k){
+			    alert('成功添加进购物车');
+				this.$store.commit('insertCar',k);
+			}
 		},
         mounted: function () {
             var _this = this

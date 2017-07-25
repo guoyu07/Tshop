@@ -1,9 +1,9 @@
 <template>
 	<div class="login">
 		<div class="headers clearfix">
-			<router-link to="/mine" class="back">
+			<span class="back" @click="backFn">
 				<img src="/static/minePage/login/back.png" alt="" />
-			</router-link>
+			</span>
 			<router-link to="/register" class="register clearfix">注册新用户</router-link>
 		</div>
 		<div class="logo">
@@ -39,7 +39,11 @@
 				isShow: false
 			}
 		},
-		
+		methods: {
+            backFn: function () {
+                this.$router.push({path: history.go(-1)})
+            }
+		},
 		components:{
 			Register
 		}
