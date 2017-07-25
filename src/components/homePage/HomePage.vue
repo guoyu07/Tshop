@@ -155,6 +155,7 @@ export default {
 						this.$router.push({name:'ClassifyPage'});
 						break;
 					case 3:
+                        this.$router.push({name:'Bargain',query:{title:'拼团活动列表',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
 						console.log(3)
 						break;
 					case 4:
@@ -162,7 +163,7 @@ export default {
 						this.$router.push({name:'BaiDu'});
 						break;
 					case 5:
-                        this.$router.push({name:'Bargain',query:{title:'砍价活动',cxt_nav:['全部活动','限量抽奖','热门拼团']}});
+                        this.$router.push({name:'Bargain',query:{title:'砍价活动',cxt_nav:['全部活动','限量抽奖','低价优惠']}});
 						break;
 					case 6:
                         this.$router.push({name:'Bargain',query:{title:'预售活动',cxt_nav:['全部活动']}});

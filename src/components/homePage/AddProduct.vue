@@ -1,10 +1,10 @@
 <template>
 	<div class="add_product" >
-		<div class="pro_pic"><router-link :to="{path:'/',params:{title:allmes.title}}"><img :src="allmes.img"/></router-link></div>
+		<div class="pro_pic"><router-link :to="{path:'/theGoods',params:{title:allmes.title}}"><img :src="allmes.img"/></router-link></div>
 		<div @click="serdFn(allmes.title)"><span>{{allmes.title}}</span></div>
 		<div>
 				<div><span>{{allmes.cost}}</span><span>{{allmes.cost2}}</span></div>
-				<a @click="showFn"><img src="../../../static/homePage/index_flow.png" /></a>
+				<a @click="showFn(allmes)"><img src="../../../static/homePage/index_flow.png" /></a>
 		</div>
 	</div>
 </template>
@@ -21,10 +21,11 @@
 		 },
 		 methods:{
 		 	serdFn(title){
-		 		alert(title);
+		 		this.$router.push({'path':'/theGoods',params:{'title':title}})
 		 	},
-			 showFn(){
-
+			 showFn(allmes){
+				 alert('成功添加进购物车');
+                 this.$store.commit('insertCar',allmes);
              }
 		 }
 	}	

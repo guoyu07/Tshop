@@ -111,6 +111,10 @@ const store = new Vuex.Store({
         show:function(state){
             alert(state.a)
         },
+        insertCar (state,k) {
+            state.carList.push(k)
+            console.log(state.carList)
+        }
     }
 })
 
