@@ -1,22 +1,22 @@
 <template>
-	<div id="ClassFiyPage" class="ClassifyPage">
+	<div class="ClassifyPage">
 		<!--菜单-->
 		<div class="menuBox" v-show="bool">
 			<div class="sanjiao"></div>
 			<div class="powers">
-				<div class="toHome">
+				<div class="toHome" @click="comeIndex">
 					<span class="bgH"></span>
 					<span class="fontsH">首页</span>
 				</div>
-				<div class="toClassify">
+				<div class="toClassify" @click="comeClass">
 					<span class="bgCl"></span>
 					<span class="fontCl">分类</span>
 				</div>
-				<div class="toCar">
+				<div class="toCar" @click="comeCart">
 					<span class="bgCa"></span>
 					<span class="fontCa">购物车</span>
 				</div>
-				<div class="toMine">
+				<div class="toMine"  @click="comeMy">
 					<span class="bgM"></span>
 					<span class="fontM">我的</span>
 				</div>
@@ -31,57 +31,108 @@
 		<!--分类内容-->
 		<div class="ClaMain">
 			<div class="ClaMain_left">
-				<router-link v-for="(v,k) in classifys" :to="v.path">
-					<div class="theSame" @click="themeFn(k)">{{ v.theme }}</div>
-				</router-link>
+				<div class="theSame" v-for="(theme,indexA) in themes" @click="change(indexA)" :class="{bg: i==indexA}">{{ theme }}</div>
 			</div>
 			<div class="ClaMain_right">
-				<router-view></router-view>
+				<div class="firstShow">
+					<router-link :to="{path:'/details',query:{teaTitle:val,teaLists:teaType}}">
+						<div class="firstShow_T" >进入{{val}}频道  ></div>
+					</router-link>
+					<div class="list" v-for="tea in teaType" @click="toDetails">{{tea}}</div>
+				</div>
 			</div>
 		</div>
-		<div class="text"></div>
+		<navigator></navigator>
 	</div>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				pgTitle:"全部分类",
-				classifys:[
-					{path:"/classify/flowerT",theme:"花茶"},
-					{path:"/classify/sixT",theme:"六大茶山"},
-					{path:"/classify/puerT",theme:"大益普洱茶"},
-					{path:"/classify/middleT",theme:"中茶"},
-					{path:"/classify/yusanT",theme:"瑜山日照绿"},
-					{path:"/classify/windT",theme:"风牌红茶"},
-					{path:"/classify/goldT",theme:"金灶"},
-				],
-				bool:false,
-			}
+    import Navigator from '../common/Navigator'
+
+    export default {
+        data() {
+            return {
+                pgTitle:"全部分类",
+                themes:["花茶","六大茶山","大益普洱茶","中茶","瑜山日照绿","风牌红茶","金灶"],
+                i:0,
+                val:"花茶",
+                teaType:["花草茶","中药调饮"],
+                bool:false,
+            }
+        },
+		components: {
+            Navigator
 		},
-		methods:{
-			menuFn:function(){
-				this.bool = !this.bool;
-			},
-			backFn:function(){
-				this.$router.push("/home");
-			},
-			themeFn:function(index){
-//				console.log(this.classifys)
-			}
-		},
-		mounted: function () {
-           //window.scrollTop = 0;
-//			document.getElementById("ClassFiyPage").scrollTop = 1000;
+        methods:{
+            change:function(ind){
+                this.i = ind;
+                switch (ind){
+                    case 0:
+                        this.val = "花茶";
+                        this.teaType=["花草茶","中药调饮"];
+                        break;
+                    case 1:
+                        this.val = "六大茶山";
+                        this.teaType=["贺开庄园系列","俊昌号系列","六大茶山系列","鼎立滇红"];
+                        break;
+                    case 2:
+                        this.val = "大益普洱茶";
+                        this.teaType=["大益普洱茶"];
+                        break;
+                    case 3:
+                        this.val = "中茶";
+                        this.teaType=["中茶普洱茶","黑茶"];
+                        break;
+                    case 4:
+                        this.val = "瑜山日照茶";
+                        this.teaType=["日照绿茶"];
+                        break;
+                    case 5:
+                        this.val = "风牌红茶";
+                        this.teaType=["风牌红茶","普洱茶"];
+                        break;
+                    case 6:
+                        this.val = "金灶";
+                        this.teaType=["电热茶炉","玻璃茶具","成套茶具"];
+                        break;
+                }
+            },
+            toDetails:function(){
+                this.$router.push("/details")
+            },
+            menuFn:function(){
+                this.bool = !this.bool;
+            },
+            backFn:function(){
+                this.$router.push({path: history.go(-1)})
+            },
+            comeIndex(){
+                this.$router.push("/")
+            },
+            comeClass(){
+                this.$router.push("/classify")
+            },
+            comeCart(){
+                this.$router.push("/car")
+            },
+            comeMy(){
+                this.$router.push("/mine")
+            }
+        },
+        mounted: function () {
+
         }
-	}
+    }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
+	.bg
+		border-left 0.0666rem solid #e71f19
+		color: #e71f19
+		background-color #f5f5f5
 	.ClassifyPage
 		width 100%
-		position relative
+		position fixed
 		left 0
 		top 0
 		/*菜单*/
@@ -97,7 +148,7 @@
 				right 14%
 				top -0.3333rem
 				width 0
-				height 0 
+				height 0
 				border-left 0.2666rem solid transparent
 				border-right 0.2666rem solid transparent
 				border-bottom 0.3333rem solid rgba(0,0,0,0.8)
@@ -110,7 +161,7 @@
 					.bgH
 						position absolute
 						left 5%
-						top 0.1rem
+						top 0.1666rem
 						display inline-block
 						width 0.7rem
 						height 0.7rem
@@ -121,6 +172,8 @@
 						font-size 0.4rem
 						display inline-block
 						margin-left 0.85rem
+						margin-bottom:0.2rem
+						margin-top:0.1666rem
 				.toClassify
 					position relative
 					padding 0.1666rem 0.1333rem
@@ -135,7 +188,7 @@
 					.fontCl
 						position absolute
 						left 0
-						top 0.2333rem
+						top 0.3rem
 						font-size 0.4rem
 						display inline-block
 						margin-left 1rem
@@ -144,7 +197,6 @@
 					padding 0.1666rem 0.1333rem
 					border-bottom 1px solid lightgray
 					.bgCa
-						
 						display inline-block
 						width 0.7rem
 						height 0.7rem
@@ -154,7 +206,7 @@
 					.fontCa
 						position absolute
 						left 0
-						top 0.2333rem
+						top 0.3rem
 						font-size 0.4rem
 						display inline-block
 						margin-left 1rem
@@ -163,7 +215,6 @@
 					padding 0.1666rem 0.1333rem
 					border-bottom 1px solid lightgray
 					.bgM
-						
 						display inline-block
 						width 0.7rem
 						height 0.7rem
@@ -173,11 +224,10 @@
 					.fontM
 						position absolute
 						left 0
-						top 0.2333rem
+						top 0.3rem
 						font-size 0.4rem
 						display inline-block
 						margin-left 1rem
-				
 		/*头部*/
 		.header
 			height 1.2rem
@@ -220,15 +270,13 @@
 				top 0
 				width 25%
 				height: 22.6666rem
-				/*border 1px solid red*/ 
+				/*border 1px solid red*/
 				text-align center
 				.theSame
 					border-top 0.0333rem solid #f5f5f5
 					border-bottom 0.0333rem solid #f5f5f5
 					font-size 0.45rem
 					padding 0.4666rem 0
-				>div:nth-child(1)
-					border-top 0.0666rem solid #f5f5f5
 			.ClaMain_right
 				position absolute
 				right 0
@@ -247,7 +295,29 @@
 					margin 3.5% auto
 					font-size 0.4rem
 					color #fff
-		.text
-			height: 0.3333rem
-			color #fff
+				.firstShow
+					position absolute
+					right 0
+					top 0
+					width 100%
+					height: 22.6666rem
+					/*border 1px solid aqua*/
+					background-color #f5f5f5
+					.firstShow_T
+						width 90%
+						height 0.9333rem
+						line-height 0.9333rem
+						text-align center
+						background-color #e71f19
+						border-radius 0.1333rem
+						margin 4% auto
+						font-size 0.4rem
+						color #fff
+					.list
+						/*border 1px solid red*/
+						color gray
+						width 90%
+						margin 0 auto
+						margin-bottom 0.3333rem
+						font-size 0.4rem
 </style>

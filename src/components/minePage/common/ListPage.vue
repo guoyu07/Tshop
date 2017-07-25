@@ -20,7 +20,7 @@
                     <p>共{{ item.count }}件商品 合计：￥{{ item.count*item.price.toFixed(2) }}</p>
                     <div>
                         <div>付款</div>
-                        <div @click="cancelOrder(index)">取消订单</div>
+                        <div @click="isCancel(index)">取消订单</div>
                         <div>朋友代付</div>
                     </div>
                 </div>
@@ -28,13 +28,21 @@
                     <p>共{{ item.count }}件商品 合计：￥{{ item.count*item.price.toFixed(2) }}</p>
                     <div>
                         <div>评价</div>
-                        <div @click="removeItem">删除订单</div>
+                        <div @click="isRemove(index)">删除订单</div>
                     </div>
                 </div>
                 <div class="settle" v-show="item.status=='交易关闭'">
                     <p>共{{ item.count }}件商品 合计：￥{{ item.count*item.price.toFixed(2) }}</p>
                     <div>
-                        <div @click="removeItem">删除订单</div>
+                        <div @click="isRemove(index)">删除订单</div>
+                    </div>
+                </div>
+                <div class="settle" v-show="item.status=='卖家已发货'">
+                    <p>共{{ item.count }}件商品 合计：￥{{ item.count*item.price.toFixed(2) }}</p>
+                    <div>
+                        <div>确认收货</div>
+                        <div>查看物流</div>
+                        <div>延长收货</div>
                     </div>
                 </div>
             </li>
@@ -65,8 +73,35 @@
             removeItem: function (index) {
                 this.list.splice(index,1);
             },
-            cancelOrder: function (index) {
-                this.list[index].status = "交易关闭"
+            isCancel: function (index) {
+                this.$confirm('是否取消此订单', '提示？', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '取消成功!'
+                    });
+                    this.list[index].status = "交易关闭"
+                }).catch(() => {
+
+                });
+            },
+            isRemove(index) {
+                this.$confirm('是否删除此订单', '提示？', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.list.splice(index,1);
+                }).catch(() => {
+
+                });
             }
         }
     }

@@ -10,10 +10,22 @@
 						<router-link :to="{path:'/theGoods',params:{title:k.title}}">
 							<img :src="k.src"/>
 						</router-link></div>
-					<div @click="sendFn(k.title)"><span>{{k.title}}</span></div>
+					<div @click="sendFn(k.title)">
+						<span>{{k.title}}</span>
+					</div>
 					<div>
+<<<<<<< HEAD
 						<div><span>{{k.price}}</span><span>{{k.pre_price}}</span></div>
 						<a @click="showFn(k)"><img src="/static/homePage/index_flow.png"/></a>
+=======
+						<div>
+							<span>{{k.price}}</span>
+							<span>{{k.pre_price}}</span>
+						</div>
+						<router-link to="/">
+							<img src="/static/homePage/index_flow.png"/>
+						</router-link>
+>>>>>>> 93641c629623ee09f58da396df2a8e9dbce20dbb
 					</div>
 				</div>
    			</li>
@@ -36,7 +48,6 @@
 	export default {
 		data: function () {
             return {
-                banners: [],
                 swiperOption: {
                     setWrapperSize :true,
                     pagination : '.swiper-pagination',
@@ -46,6 +57,7 @@
                 }
             }
         },
+		props: ['banners'],
 		components: {
 		    swiper,
 		    swiperSlide
@@ -56,6 +68,7 @@
 			},
 			show: function () {
 				console.log(this.banners)
+<<<<<<< HEAD
             },
             showFn(k){
 			    alert('成功添加进购物车');
@@ -69,6 +82,10 @@
                 _this.banners.push(res.data.slice(3,6))
             })
         }
+=======
+            }
+		}
+>>>>>>> 93641c629623ee09f58da396df2a8e9dbce20dbb
 	}
 </script>
 

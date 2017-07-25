@@ -43,7 +43,7 @@
 	     			<span>新品上市</span>
 	     			<router-link to="/details">更多></router-link>
 	     		</div>
-	     		<new-swiper></new-swiper>
+	     		<new-swiper :banners="newProduct"></new-swiper>
 	     	</div>
 	     	<!--热销商品-->
 	     	<div class="new_product">
@@ -51,7 +51,7 @@
 	     			<span>热销商品</span>
 	     			<router-link to="/details">更多></router-link>
 	     		</div>
-	     		<new-swiper v-bind:banners="hotProd"></new-swiper>
+	     		<new-swiper :banners="hotProduct"></new-swiper>
 	     	</div>
 	     	<!--乌龙茶-->
 	     	<div class="new_product">
@@ -73,15 +73,17 @@
 	     		</ul>
 	     	</div>
      	</div>
+		<navigator></navigator>
     </div>
 </template>
 
 <script>
-import HomeSwiper from "./HomeSwiper"
-import AddProduct from "./AddProduct"
-import NewSwiper from "./NewSwiper"
-import axios from 'axios'
-//import BrandDisplay from "./BrandDisplay"
+    import Navigator from '../common/Navigator'
+	import HomeSwiper from "./HomeSwiper"
+	import AddProduct from "./AddProduct"
+	import NewSwiper from "./NewSwiper"
+	import axios from 'axios'
+	//import BrandDisplay from "./BrandDisplay"
 
 export default {
 		//渲染数据
@@ -108,12 +110,15 @@ export default {
 					[{img:'../../../static/homePage/brand4.png',name:'中茶普洱茶'},{img:'../../../static/homePage/brand6.png',name:'大益普洱茶'}],
 					[{img:'../../../static/homePage/brand5.png',name:'瑜山日照绿茶'},{img:'../../../static/homePage/brand7.png',name:'茶具'}]
 				],
-		      //商品热销
-				hotProd:	[
-		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}],
-		      		[{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'}]
-		      ],
-		      //乌龙茶
+				//新品上市
+                newProduct: [
+
+				],
+		      	//商品热销
+                hotProduct: [
+
+		      	],
+		      	//乌龙茶
 		      	oolongProd:[
 		      		{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},
 		      		{img:'../../../static/homePage/product.jpg',title:'传承老树白茶9018 福鼎白牡丹2016春节送礼佳品白茶套装',cost:'1268.00',cost2:'321.60'},
@@ -134,6 +139,7 @@ export default {
 		},
 		//注册组件
 		components:{
+            Navigator,
 			HomeSwiper,
 			AddProduct,
 			NewSwiper,
@@ -205,33 +211,56 @@ export default {
 						this.$router.push({name:'details',params:{name:event.target.name}});
 						break;
 				}
-				
-				
 			},
 //			一键返回顶部
 			goTop:function(){
 				document.body.scrollTop = 0;
-			},
-
+			}
+		},
+		mounted: function () {
+			var _this = this;
+			axios({
+				url: 'http://1.teashop.applinzi.com/php/shop.php',
+				method: 'GET'
+			}).then(function (res) {
+				var re = res.data.split("!!!");
+				re.splice(re.length-1,1);
+				for (let i=0;i<re.length;i++){
+					re[i] = JSON.parse(re[i]);
+				}
+                _this.newProduct.push(re.slice(0,3));
+                _this.newProduct.push(re.slice(3,6));
+			})
+            axios({
+                url: 'http://1.teashop.applinzi.com/php/hotProduct.php',
+                method: 'GET'
+            }).then(function (res) {
+                var re = res.data.split("!!!");
+                re.splice(re.length-1,1);
+                for (let i=0;i<re.length;i++){
+                    re[i] = JSON.parse(re[i]);
+                }
+                _this.hotProduct.push(re);
+            })
 		}
 	}
-
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .homepage
+	//一键返回顶部
 	.goTop
-			width 1.5rem
-			height 1.5rem
-			border-radius 50%
-			position fixed
-			right 0.2rem
-			bottom 2rem
-			background url('../../../static/img/ClassifyPage/goTop.png') no-repeat
-			background-position center center
-			background-size 100%
-			background-color rgba(0,0,0,0.4)
-			z-index 10
+		z-index 100
+		width 1.5rem
+		height 1.5rem
+		border-radius 50%
+		position fixed
+		right 0.2rem
+		bottom 2rem
+		background url('../../../static/img/ClassifyPage/goTop.png') no-repeat
+		background-position center center
+		background-size 100%
+		background-color rgba(0,0,0,0.4)
 	/*导航栏*/
 	background-color #fff
 	.header
