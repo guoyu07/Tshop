@@ -82,26 +82,7 @@ devMiddleware.waitUntilValid(() => {
   }
   _resolve()
 })
-var mysql = require('mysql');
 
-// 连接共享型MySQL
-var connection = mysql.createConnection({
-    host     : "w.rdc.sae.sina.com.cn",
-    port     : 3306,
-    user     : "624334519@qq.com",
-    password : "qq624334519",
-    database : "app_teashop"
-});
-
-app.get('/newShop',function (req,res) {
-    connection.query('SELECT * FROM shop', function(err, rows) {
-        if (err) {
-            // 处理错误
-        }
-        console.log(rows)
-    });
-
-})
 var server = app.listen(port)
 
 module.exports = {

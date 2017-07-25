@@ -10,10 +10,17 @@
 						<router-link :to="{path:'/',params:{title:k.title}}">
 							<img :src="k.src"/>
 						</router-link></div>
-					<div @click="sendFn(k.title)"><span>{{k.title}}</span></div>
+					<div @click="sendFn(k.title)">
+						<span>{{k.title}}</span>
+					</div>
 					<div>
-						<div><span>{{k.price}}</span><span>{{k.pre_price}}</span></div>
-						<router-link to="/"><img src="/static/homePage/index_flow.png"/></router-link>
+						<div>
+							<span>{{k.price}}</span>
+							<span>{{k.pre_price}}</span>
+						</div>
+						<router-link to="/">
+							<img src="/static/homePage/index_flow.png"/>
+						</router-link>
 					</div>
 				</div>
    			</li>
@@ -36,7 +43,6 @@
 	export default {
 		data: function () {
             return {
-                banners: [],
                 swiperOption: {
                     setWrapperSize :true,
                     pagination : '.swiper-pagination',
@@ -46,6 +52,7 @@
                 }
             }
         },
+		props: ['banners'],
 		components: {
 		    swiper,
 		    swiperSlide
@@ -58,14 +65,7 @@
 			show: function () {
 				console.log(this.banners)
             }
-		},
-        mounted: function () {
-            var _this = this
-            axios.get('/newShop').then(function (res) {
-                _this.banners.push(res.data.slice(0,3))
-                _this.banners.push(res.data.slice(3,6))
-            })
-        }
+		}
 	}
 </script>
 
