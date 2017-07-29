@@ -13,7 +13,7 @@
             <span @click="isEdit=!isEdit">{{ isEdit? '完成' : '编辑' }}</span>
         </div>
         <ul>
-            <li v-for="(item,index) in carList">
+            <li v-for="(item,index) in this.$store.state.carList" :key="item.id">
                 <div  class="check">
                     <input type="checkbox" v-model="item.check">
                 </div>
@@ -39,7 +39,7 @@
             <div @click="checkAll">
                 <input type="checkbox" v-model="isCheckAll"><span>全选</span>
             </div>
-            <div>结算({{ checked_count }})</div>
+            <div  @click="aaa">结算({{ checked_count }})</div>
             <div>
                 <p>合计：<span>￥{{ price_all }}</span></p>
                 <span>已优惠：￥{{30}}</span>
@@ -57,38 +57,7 @@
         data: function () {
             return {
                 carList: [
-                    {
-                        "title": "大益普洱茶熟茶 琥珀方砖60g*4盒组合装云南勐海茶厂砖茶",
-                        "src": "static/images/carPage/car1.jpg",
-                        "count": 2,
-                        "price": 79.60,
-                        "pre_price": 95.52,
-                        "check": true
-                    },
-                    {
-                        "title": "中茶普洱 云南普洱熟茶07年十周年中茶牌圆茶380g 茶叶中粮出品",
-                        "src": "static/images/carPage/car2.jpg",
-                        "count": 1,
-                        "price": 478.00,
-                        "pre_price": 573.60,
-                        "check": true
-                    },
-                    {
-                        "title": "中茶普洱 云南普洱熟茶07年十周年中茶牌圆茶380g 茶叶中粮出品",
-                        "src": "static/images/carPage/car2.jpg",
-                        "count": 2,
-                        "price": 478.00,
-                        "pre_price": 573.60,
-                        "check": true
-                    },
-                    {
-                        "title": "中茶普洱 云南普洱熟茶07年十周年中茶牌圆茶380g 茶叶中粮出品",
-                        "src": "static/images/carPage/car2.jpg",
-                        "count": 3,
-                        "price": 478.00,
-                        "pre_price": 573.60,
-                        "check": true
-                    }
+
                 ],
                 isEdit: false,
                 isCheckAll: true,
@@ -127,7 +96,7 @@
                 }
             },
             removeItem: function (index) {
-                this.carList.splice(index,1);
+
             },
             isRemove(index) {
                 this.$confirm('是否删除此购物车?', '提示', {
@@ -139,18 +108,26 @@
                         type: 'success',
                         message: '删除成功!'
                     });
-                    this.carList.splice(index,1);
+                    this.$store.commit('removeCar', index);
                 }).catch(() => {
 
                 });
+            },
+            aaa: function () {
+                var carList = this.$store.state.carList
+                for (var i=0; i<carList.length; i++) {
+                    if (carList[i].check){
+                        console.log(carList[i])
+                    }
+                }
             }
         },
         mounted: function () {
             this.checked_count = this.carList.length;
             for (var i=0;i<this.carList.length;i++){
                 this.price_all += this.carList[i].count * 1 * this.carList[i].price
-            }
-
+            };
+//            this.carList = this.$store.state.carList;
         },
         watch: {
             'carList': {

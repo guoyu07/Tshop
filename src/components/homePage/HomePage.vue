@@ -43,7 +43,7 @@
 	     			<span>新品上市</span>
 	     			<router-link to="/details">更多></router-link>
 	     		</div>
-	     		<new-swiper :banners="newProduct"></new-swiper>
+	     		<new-swiper :banners="this.$store.state.newList"></new-swiper>
 	     	</div>
 	     	<!--热销商品-->
 	     	<div class="new_product">
@@ -51,7 +51,7 @@
 	     			<span>热销商品</span>
 	     			<router-link to="/details">更多></router-link>
 	     		</div>
-	     		<new-swiper :banners="hotProduct"></new-swiper>
+	     		<new-swiper :banners="this.$store.state.hotList"></new-swiper>
 	     	</div>
 	     	<!--乌龙茶-->
 	     	<div class="new_product">
@@ -61,7 +61,9 @@
 	     		</div>
 	     		<div class="oolong">
 	     			<ul >
-	     				<li v-for="m in oolongProd"><add-product v-bind:allmes="m" ></add-product> </li>
+	     				<li v-for="m in oolongProd">
+							<add-product :allmes="m" ></add-product>
+						</li>
 	     			</ul>	     			
 	     		</div>
 	     	</div>
@@ -216,32 +218,6 @@ export default {
 			goTop:function(){
 				document.body.scrollTop = 0;
 			}
-		},
-		mounted: function () {
-			var _this = this;
-			axios({
-				url: 'http://1.teashop.applinzi.com/php/shop.php',
-				method: 'GET'
-			}).then(function (res) {
-				var re = res.data.split("!!!");
-				re.splice(re.length-1,1);
-				for (let i=0;i<re.length;i++){
-					re[i] = JSON.parse(re[i]);
-				}
-                _this.newProduct.push(re.slice(0,3));
-                _this.newProduct.push(re.slice(3,6));
-			})
-            axios({
-                url: 'http://1.teashop.applinzi.com/php/hotProduct.php',
-                method: 'GET'
-            }).then(function (res) {
-                var re = res.data.split("!!!");
-                re.splice(re.length-1,1);
-                for (let i=0;i<re.length;i++){
-                    re[i] = JSON.parse(re[i]);
-                }
-                _this.hotProduct.push(re);
-            })
 		}
 	}
 </script>
@@ -385,6 +361,7 @@ export default {
 			/*乌龙茶*/
 			.oolong
 				ul
+					padding 0 1.5%
 					li	
 						display inline-block
 						width 32%

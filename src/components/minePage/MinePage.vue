@@ -6,7 +6,8 @@
 					<div><img src="/static/minePage/1.png"/></div>
 				</li>
 				<li class="login">
-					<router-link to="/login">登录</router-link>
+					<router-link to="/login" v-show="!exits">登录</router-link>
+					<a v-show="exits" >{{successName}}</a>
 				</li>
 				<li class="list">
 					<span>收藏</span>
@@ -54,18 +55,91 @@
                     {'name':'客服热线','src':require('../../../static/minePage/11.png')},
                     {'name':'我的上传','src':require('../../../static/minePage/11.png')},
                     {'name':'我的设置','src':require('../../../static/minePage/11.png')}],
-                arr2:[{'path':'/mine/login'}]
+                arr2:[{'path':'/mine/login'}],
+                successName: ""
             }
         },
         methods:{
             loginFn:function(){
                 console.log(1);
             },
+
+//            updateCookie:function(){
+//                console.log(this.getCookie("username"));
+//                console.log(this.getCookie("pwd"));
+//                var username = this.getCookie("username");
+//                var pwd = this.getCookie("pwd");
+//                if(username == this.userName&& pwd == this.pwd){
+//                    alert("登录成功");
+//                    this.userName="";
+//                    this.pwd="";
+//                    this.$router.push("/mine");
+//                }else{
+//                    alert("账号或者密码错误,请重新输入")
+//                }
+//            },
+//            getCookie:function(cname){
+//                var name = cname + "=";
+//                var ca = document.cookie.split(';');
+//                for (var i = 0; i < ca.length; i++) {
+//                    var c = ca[i];
+//                    while (c.charAt(0) == ' ') c = c.substring(1);
+//                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+//                }
+//                return "";
+//            },
+//			gogo(){
+//                this.$store.commit('gogo')
+//			}
         },
         components:{
             Navigator,
             Login
-        }
+        },
+		mounted(){
+//            updateCookie:function(){
+//                console.log(this.getCookie("username"));
+//                console.log(this.getCookie("pwd"));
+//                var username = this.getCookie("username");
+//                var pwd = this.getCookie("pwd");
+//                if(username == this.userName&& pwd == this.pwd){
+//                    alert("登录成功");
+//                    this.userName="";
+//                    this.pwd="";
+//                    this.$router.push("/mine");
+//                }else{
+//                    alert("账号或者密码错误,请重新输入")
+//                }
+//            },
+            function getCookie(cname){
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            };
+            console.log(getCookie("username"));
+            console.log(getCookie("pwd"));
+            var username = getCookie("username");
+            var pwd = getCookie("pwd");
+//            if(username == this.userName&& pwd == this.pwd){
+//                alert("登录成功");
+//                this.userName="";
+//                this.pwd="";
+//                this.$router.push("/mine");
+//            }else{
+//                alert("账号或者密码错误,请重新输入")
+//            }
+			this.successName = username;
+		},
+			computed:{
+		    	exits(){
+		    	    return this.$store.state.exits
+				}
+			}
     }
 </script>
 

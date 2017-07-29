@@ -9,7 +9,7 @@
 			<input type="password" placeholder="密码" v-model="newPassword"/>
 			<input type="password" placeholder="确认密码" v-model="surePassword"/>
 		</div>
-		<div class="logins" @click="setUp">
+		<div class="logins" @click="Fn">
 			<span>注册</span>
 		</div>
 		<p>其他注册方式</p>
@@ -53,41 +53,9 @@
 			console.log(localStorage.getItem('a'));
 		},
 		methods:{
-//			Fn:function(){
-//				if(this.newPassword==this.surePassword){
-//					localStorage.setItem('username','{"name":"'+this.newUserName+'","pwd":"'+this.newPassword+'","surePwd":"'+this.surePassword+'"}');
-//					var v = JSON.parse(localStorage.getItem('username'));
-//					console.log(v);
-//					this.newUserName="";
-//					this.newPassword="";
-//					this.surePassword="";
-//				}else{
-//					alert("密码不一致")
-//				}
-//			}, 
-			setUp:function(){
-				if(this.newPassword==this.surePassword){
-					this.setCookie("username",this.newUserName,2);
-					this.setCookie("pwd",this.newPassword,2)
-					console.info(document.cookie);
-					alert("注册成功")
-					this.newUserName="";
-					this.newPassword="";
-					this.surePassword="";
-					this.$router.push("/login");
-				}else{
-					alert("密码不一致")
-				}
-				
-			},
-			setCookie:function(cname, cvalue, exdays){
-				var d = new Date();
-                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-                var expires = "expires=" + d.toUTCString();
-//              console.info(cname + "=" + cvalue + "; " + expires);
-                document.cookie = cname + "=" + cvalue + "; " + expires; 
-			},
-			
+			Fn:function(){
+				localStorage.setItem('username','{"name":"this.newUserName","pwd":"this.newPassword","surePwd":"this.surePassword"}');
+			}
 		},
 		components: {
             Back

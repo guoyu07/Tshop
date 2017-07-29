@@ -1,34 +1,45 @@
 <template>
 	<div class="add_product" >
-		<div class="pro_pic"><router-link :to="{path:'/theGoods',params:{title:allmes.title}}"><img :src="allmes.img"/></router-link></div>
-		<div @click="serdFn(allmes.title)"><span>{{allmes.title}}</span></div>
+		<div class="pro_pic">
+			<router-link :to="{path:'/theGoods',params:{title:allmes.title}}">
+				<img :src="allmes.img"/>
+			</router-link>
+		</div>
+		<div @click="serdFn(allmes.title)">
+			<span>{{allmes.title}}</span>
+		</div>
 		<div>
-				<div><span>{{allmes.cost}}</span><span>{{allmes.cost2}}</span></div>
-				<a @click="showFn(allmes)"><img src="../../../static/homePage/index_flow.png" /></a>
+			<div>
+				<span>{{allmes.cost}}</span>
+				<span>{{allmes.cost2}}</span>
+			</div>
+			<a @click="addCar(allmes)">
+				<img src="../../../static/homePage/index_flow.png" />
+			</a>
 		</div>
 	</div>
 </template>
 
 <script>
-	export default {
-		props:['allmes'],
-		data() {
-	      return {
-	      }
-	  },		
-		components: {
-		    
-		 },
-		 methods:{
-		 	serdFn(title){
-		 		this.$router.push({'path':'/theGoods',params:{'title':title}})
-		 	},
-			 showFn(allmes){
-				 alert('成功添加进购物车');
-                 this.$store.commit('insertCar',allmes);
-             }
-		 }
-	}	
+export default {
+	props:['allmes'],
+	data() {
+		return {
+		}
+	},
+	components: {
+
+	},
+	methods:{
+		serdFn(title){
+			this.$router.push({'path':'/theGoods',params:{'title':title}})
+		},
+		addCar(item){
+	 		console.log(item);
+	 		this.$store.commit('insertCar',item);
+		}
+	}
+}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>

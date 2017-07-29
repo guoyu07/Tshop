@@ -1,22 +1,26 @@
 <template>
-<div class="myswiper" @click="show">
+<div class="myswiper">
 	<swiper :options="swiperOption">
 	<!--轮播图-->
    	<swiper-slide v-for="slide in banners">
-   		<ul >
-   			<li v-for=" (k,index) in slide">
+   		<ul>
+   			<li v-for="item in slide" :key="item.id">
    				<div class="add_product" >
 					<div class="pro_pic">
-						<router-link :to="{path:'/theGoods',params:{title:k.title}}">
-							<img :src="k.src"/>
+						<router-link :to="{path:'/theGoods',params:{title:item.title}}">
+							<img :src="item.src"/>
 						</router-link></div>
-					<div @click="sendFn(k.title)">
-						<span>{{k.title}}</span>
+					<div @click="sendFn(item.title)">
+						<span>{{item.title}}</span>
 					</div>
 					<div>
-						<div><span>{{k.price}}</span><span>{{k.pre_price}}</span></div>
-						<a @click="showFn(k)"><img src="/static/homePage/index_flow.png"/></a>
-
+						<div>
+							<span>{{item.price}}</span>
+							<span>{{item.pre_price}}</span>
+						</div>
+						<div @click="addCar(item)">
+							<img src="/static/homePage/index_flow.png"/>
+						</div>
 					</div>
 				</div>
    			</li>
@@ -53,25 +57,15 @@
 		    swiper,
 		    swiperSlide
 		 },
-		methods:{
+		methods: {
 			sendFn(title){
 				this.$router.push({name:'/theGoods',params:{title:title}});
 			},
-			show: function () {
-				console.log(this.banners)
-            },
-            showFn(k){
-			    alert('成功添加进购物车');
-				this.$store.commit('insertCar',k);
+            addCar(item){
+			    alert("已添加进购物车")
+				this.$store.commit('insertCar', item);
 			}
-		},
-        mounted: function () {
-            var _this = this
-            axios.get('/newShop').then(function (res) {
-                _this.banners.push(res.data.slice(0,3))
-                _this.banners.push(res.data.slice(3,6))
-            })
-        }
+		}
 	}
 </script>
 
@@ -84,7 +78,7 @@
 		list-style none
 		li
 			flex 1
-			margin-left 1%
+			margin 0 1%
 			.add_product
 				width 100%
 				div:nth-child(1)
@@ -93,6 +87,7 @@
 							width 100%
 				div:nth-child(2)
 					width 93%
+					height 2rem
 					margin auto
 					border-bottom 0.0133rem solid #eeeeee
 					span
@@ -109,7 +104,6 @@
 						position absolute
 						width 1.5333rem
 						left 0.1733rem
-						top 0.2666rem
 						span:nth-child(1)
 							display block
 							font-size 0.3733rem
@@ -119,12 +113,11 @@
 							color #999999
 							font-size 0.24rem
 							text-decoration line-through
-					a:nth-child(2)
+					div:nth-child(2)
 						position absolute 
 						width 0.7066rem
 						height 0.7066rem
 						right 0.1466rem
-						top 0.2666rem
 						background-color #e71f19
 						border-radius 50%
 						img

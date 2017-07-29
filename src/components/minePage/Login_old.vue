@@ -1,21 +1,20 @@
 <template>
 	<div class="login">
 		<div class="headers clearfix">
-			<router-link to="/mine" class="back">
+			<span class="back" @click="backFn">
 				<img src="/static/minePage/login/back.png" alt="" />
-			</router-link>
+			</span>
 			<router-link to="/register" class="register clearfix">注册新用户</router-link>
 		</div>
 		<div class="logo">
 			<img src="../../../static/minePage/login/logo.png" alt="" />
 		</div>
 		<div class="paw">
-			<input type="text" placeholder="账号" v-model="userName"/>
-			<input type="password" placeholder="密码" v-model="pwd"/>
+			<input type="text" placeholder="账号" />
+			<input type="password" placeholder="密码" />
 		</div>
-		<div class="logins" @click="updateCookie">
-			<span v-show="true" @click = "gogo">登录</span>
-			<!--<span v-show="false">{{userName}}</span>-->
+		<div class="logins">
+			<span>登录</span>
 		</div>
 		<p>其他登录方式</p>
 		<div class="other">
@@ -37,50 +36,13 @@
 					 {'src':require('../../../static/minePage/login/weixin.png')},
 					 {'src':require('../../../static/minePage/login/weibo.png')},
 					 {'src':require('../../../static/minePage/login/baidu.png')}],
-				isShow: false,
-				userName:"",
-				pwd:"",
+				isShow: false
 			}
 		},
-		methods:{
-//			Login:function(){
-//				var abc=localStorage.getItem("username");
-//				console.log(abc);
-//				var v = JSON.parse(abc)
-//				console.log(JSON.parse(abc));
-//				if(this.userName==v.name&&this.pwd==v.pwd){
-//					console.log("OK")
-//				}else{
-//					console.log("密码错误")
-//				}
-//			},
-            gogo(){
-                this.$store.commit('gogo')
-            },
-			updateCookie:function(){
-				console.log(this.getCookie("username"));
-				console.log(this.getCookie("pwd"));
-				var username = this.getCookie("username");
-				var pwd = this.getCookie("pwd");
-				if(username == this.userName&& pwd == this.pwd){
-					alert("登录成功");
-					this.userName="";
-					this.pwd="";
-					this.$router.push("/mine");
-				}else{
-					alert("账号或者密码错误,请重新输入")
-				}
-			},
-			getCookie:function(cname){
-				var name = cname + "=";
-                var ca = document.cookie.split(';');
-                for (var i = 0; i < ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) == ' ') c = c.substring(1);
-                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-                }
-                return "";
-			},
+		methods: {
+            backFn: function () {
+                this.$router.push({path: history.go(-1)})
+            }
 		},
 		components:{
 			Register
